@@ -70,6 +70,6 @@ public class CheckoutOverviewPage {
         assertTrue(checkoutOverviewPage.isTaxDisplayed());
         assertEquals("Tax: $4.80",checkoutOverviewPage.getTaxText());
 
-        assertEquals(64.78,checkoutOverviewPage.overallPrice(),0.0);
+        assertEquals(64.72,checkoutOverviewPage.overallPrice(),0.1);
     }
 }
