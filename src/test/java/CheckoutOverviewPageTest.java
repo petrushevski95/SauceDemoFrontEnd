@@ -8,15 +8,12 @@ import pages.LoginPage;
 import pages.ProductsPage;
 import pages.YourCartPage;
 
-import java.util.Optional;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class CheckoutOverviewPage {
+public class CheckoutOverviewPageTest {
 
     private WebDriver driver;
-    private LoginPage loginPage;
     private YourCartPage yourCartPage;
     private ProductsPage productsPage;
     private CheckoutYourInformationPage checkoutInformationPage;
@@ -27,10 +24,9 @@ public class CheckoutOverviewPage {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         yourCartPage = new YourCartPage(driver);
-        checkoutInformationPage = new CheckoutYourInformationPage(driver);
         checkoutInformationPage = new CheckoutYourInformationPage(driver);
         checkoutOverviewPage = new pages.CheckoutOverviewPage(driver);
 
@@ -69,7 +65,8 @@ public class CheckoutOverviewPage {
         assertEquals("Price Total",checkoutOverviewPage.getPriceTotalText());
         assertTrue(checkoutOverviewPage.isTaxDisplayed());
         assertEquals("Tax: $4.80",checkoutOverviewPage.getTaxText());
+        assertTrue(checkoutOverviewPage.isTotalDisplayed());
 
-        assertEquals(64.78,checkoutOverviewPage.overallPrice(),0.0);
+        assertEquals(checkoutOverviewPage.getTotal(),checkoutOverviewPage.overallPrice(),0.0);
     }
 }

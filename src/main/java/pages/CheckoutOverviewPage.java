@@ -71,8 +71,9 @@ public class CheckoutOverviewPage {
         return driver.findElement(tax).isDisplayed();
     }
 
-    public String getTotal(){
-        return driver.findElement(total).getText();
+    public double getTotal(){
+        String price = driver.findElement(total).getText().substring(8);
+        return Double.parseDouble(price);
     }
 
     public boolean isTotalDisplayed(){

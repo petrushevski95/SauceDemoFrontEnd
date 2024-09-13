@@ -52,7 +52,8 @@ public class ProductsPageTest {
         productsPage.clickAddToCartSauceLabsBoltTshirt();
 
         assertEquals("Remove",productsPage.getRemoveButtonText());
-        assertEquals("rgba(255, 255, 255, 1)",productsPage.getRemoveButtonColor());
+        assertEquals("#e2231a",productsPage.getRemoveButtonBorderColor());
+        assertEquals("#e2231a",productsPage.getRemoveButtonTextColor());
         assertTrue(productsPage.cartSignDisplayed());
     }
 

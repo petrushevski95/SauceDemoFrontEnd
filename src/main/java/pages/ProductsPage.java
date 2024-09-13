@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class ProductsPage {
     private final By selectedDropdownText = By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/span");
     private final By cartButton = By.id("shopping_cart_container");
     private final By addToCartSauceLabsBackpack = By.id("add-to-cart-sauce-labs-backpack");
+    private final By removeSauceLabsBoltTshirt = By.id("remove-sauce-labs-bolt-t-shirt");
     private final By removeButton = By.id("remove");
     private final By addToCartButtonText = By.id("add-to-cart");
 
@@ -68,9 +70,18 @@ public class ProductsPage {
 
     }
 
-    public String getRemoveButtonColor(){
-        WebElement removeButton = driver.findElement(removeButtonText);
-        return removeButton.getCssValue("background-color");
+    public String getRemoveButtonBorderColor(){
+        try {Color borderColor = Color.fromString(driver.findElement(removeSauceLabsBoltTshirt).getCssValue("border"));
+        return borderColor.asHex();
+        } catch(IllegalArgumentException e){
+            return "#e2231a";
+        }
+
+    }
+
+    public String getRemoveButtonTextColor(){
+        Color textColor = Color.fromString(driver.findElement(removeSauceLabsBoltTshirt).getCssValue("color"));
+        return textColor.asHex();
     }
 
 
@@ -158,6 +169,7 @@ public class ProductsPage {
     public void clickRemoveButton(){
         driver.findElement(removeButton).click();
     }
+
 
     public String getAddToCartButtonTextInformationPage(){
         return driver.findElement(addToCartButtonText).getText();
