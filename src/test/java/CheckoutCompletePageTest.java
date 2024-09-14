@@ -13,7 +13,7 @@ public class CheckoutCompletePageTest {
     
     private WebDriver driver;
     private CheckoutCompletePage checkoutCompletePage;
-    // test 123
+
     @Before
     public void setUp(){
         driver = new ChromeDriver();
@@ -53,6 +53,7 @@ public class CheckoutCompletePageTest {
         assertEquals(orderCompleteMessage,checkoutCompletePage.getOrderCompleteText());
     }
 
+
     @Test
     public void backHomeButtonTextFontColorTest(){
         assertEquals("#3ddc91",checkoutCompletePage.getBackHomeButtonBackgroundColor());
@@ -61,6 +62,8 @@ public class CheckoutCompletePageTest {
         assertEquals("\"DM Sans\", sans-serif",checkoutCompletePage.getBackHomeButtonFontType());
     }
 
-
-
+    @Test
+    public void pictureDisplayedTest(){
+        assertTrue(checkoutCompletePage.isSignPictureDisplayed());
+    }
 }

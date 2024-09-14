@@ -10,7 +10,7 @@ public class CheckoutCompletePage {
     private final By thankYouMessage = By.className("complete-header");
     private final By orderCompleteText = By.className("complete-text");
     private final By backHomeButton = By.id("back-to-products");
-
+    private final By signPicture = By.className("pony_express");
     public CheckoutCompletePage(WebDriver driver){
         this.driver = driver;
     }
@@ -57,5 +57,8 @@ public class CheckoutCompletePage {
         return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html");
     }
 
+    public boolean isSignPictureDisplayed(){
+        return driver.findElement(signPicture).isDisplayed();
+    }
 
 }
