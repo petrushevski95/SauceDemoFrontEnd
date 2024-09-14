@@ -11,6 +11,7 @@ public class CheckoutCompletePage {
     private final By orderCompleteText = By.className("complete-text");
     private final By backHomeButton = By.id("back-to-products");
     private final By signPicture = By.className("pony_express");
+
     public CheckoutCompletePage(WebDriver driver){
         this.driver = driver;
     }
