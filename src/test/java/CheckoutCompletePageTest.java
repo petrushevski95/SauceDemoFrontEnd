@@ -10,9 +10,10 @@ import static org.junit.Assert.assertTrue;
 
 public class CheckoutCompletePageTest {
 
+    
     private WebDriver driver;
     private CheckoutCompletePage checkoutCompletePage;
-
+    // test 123
     @Before
     public void setUp(){
         driver = new ChromeDriver();
