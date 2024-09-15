@@ -67,4 +67,9 @@ public class CheckoutCompletePageTest {
     public void pictureDisplayedTest(){
         assertTrue(checkoutCompletePage.isSignPictureDisplayed());
     }
+
+    @Test
+    public void checkoutCompletePageLogoDisplayedTest(){
+        assertTrue(checkoutCompletePage.isCheckoutCompletePageLogoDisplayed());
+    }
 }

@@ -11,6 +11,7 @@ public class CheckoutCompletePage {
     private final By orderCompleteText = By.className("complete-text");
     private final By backHomeButton = By.id("back-to-products");
     private final By signPicture = By.className("pony_express");
+    private final By checkoutCompleteLogo = By.className("app_logo");
 
     public CheckoutCompletePage(WebDriver driver){
         this.driver = driver;
@@ -60,6 +61,10 @@ public class CheckoutCompletePage {
 
     public boolean isSignPictureDisplayed(){
         return driver.findElement(signPicture).isDisplayed();
+    }
+
+    public boolean isCheckoutCompletePageLogoDisplayed(){
+        return driver.findElement(checkoutCompleteLogo).isDisplayed();
     }
 
 }
