@@ -19,7 +19,6 @@ public class ProductsPage {
     private final By addToCartSauceLabsFleeceJacket = By.id("add-to-cart-sauce-labs-fleece-jacket");
     private final By removeButtonText = By.id("remove-sauce-labs-bolt-t-shirt");
     private final By cartSign = By.xpath("//*[@id=\"shopping_cart_container\"]/a/span");
-    private final By removeSauceBackPack = By.id("remove-sauce-labs-bolt-t-shirt");
     private final By cartBadge = By.className("shopping_cart_badge");
     private final By tShirtRed = By.id("item_3_title_link");
     private final By sauceLabsOnesiePrice = By.xpath("//*[@id=\"inventory_container\"]/div/div[1]/div[2]/div[2]/div");
@@ -29,76 +28,66 @@ public class ProductsPage {
     private final By addToCartSauceLabsBackpack = By.id("add-to-cart-sauce-labs-backpack");
     private final By removeSauceLabsBoltTshirt = By.id("remove-sauce-labs-bolt-t-shirt");
     private final By removeButton = By.id("remove");
-    private final By addToCartButtonText = By.id("add-to-cart");
+    private final By addToCartButton = By.id("add-to-cart");
 
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void clickSauceLabsBackpackText(){
+    public void clickSauceLabsBackpackText() {
         driver.findElement(sauceLabsBackpack).click();
     }
 
-    public void clickBackToProducts(){
+    public void clickBackToProducts() {
         driver.findElement(backToProducts).click();
     }
 
-    public void clickAddToCartSauceLabsBoltTshirt(){
+    public void clickAddToCartSauceLabsBoltTshirt() {
         driver.findElement(addToCartSauceLabsBoltTshirt).click();
     }
 
-    public void clickAddToCartSauceLabsBikeLight(){
+    public void clickRemoveSauceLabsBoltTshirt() {
+        driver.findElement(removeSauceLabsBoltTshirt).click();
+    }
+
+    public void clickAddToCartSauceLabsBikeLight() {
         driver.findElement(addToCartSauceLabsBikeLight).click();
     }
 
-    public void clickAddToCartSauceLabsFleeceJacket(){
+    public void clickAddToCartSauceLabsFleeceJacket() {
         driver.findElement(addToCartSauceLabsFleeceJacket).click();
     }
 
-    public String getRemoveButtonText(){
+    public String getRemoveButtonText() {
         return driver.findElement(removeButtonText).getText();
     }
 
-    public String getAddToCartSauceLabsBoltTshirtButtonText(){
+    public String getAddToCartSauceLabsBoltTshirtButtonText() {
         return driver.findElement(addToCartSauceLabsBoltTshirt).getText();
     }
 
-    public String getAddToCartSauceLabsBoltTshirtButtonTextColor(){
-        WebElement removeButton = driver.findElement(addToCartSauceLabsBoltTshirt);
-        return  removeButton.getCssValue("background-color");
-
+    public String getAddToCartSauceLabsBoltTshirtButtonBorderColor() {
+        Color borderColor = Color.fromString(driver.findElement(addToCartSauceLabsBoltTshirt).getCssValue("color"));
+            return borderColor.asHex();
     }
 
-    public String getRemoveButtonBorderColor(){
-        try {Color borderColor = Color.fromString(driver.findElement(removeSauceLabsBoltTshirt).getCssValue("border"));
-        return borderColor.asHex();
-        } catch(IllegalArgumentException e){
-            return "#e2231a";
-        }
-
+    public String getRemoveButtonBorderColor() {
+       Color borderColor = Color.fromString(driver.findElement(removeSauceLabsBoltTshirt).getCssValue("color"));
+            return borderColor.asHex();
     }
 
-    public String getRemoveButtonTextColor(){
+    public String getRemoveButtonTextColor() {
         Color textColor = Color.fromString(driver.findElement(removeSauceLabsBoltTshirt).getCssValue("color"));
         return textColor.asHex();
     }
 
-
-    public String getAddToCartButtonColor(){
-        WebElement removeButton = driver.findElement(sauceLabsBackpack);
-        return removeButton.getCssValue("background-color");
-    }
-
-    public boolean cartSignDisplayed(){
+    public boolean cartSignDisplayed() {
        return driver.findElement(cartSign).isDisplayed();
     }
 
-    public void removeSauceBackPackTshirt(){
-        driver.findElement(removeSauceBackPack).click();
-    }
 
-    public String currentUrl(){
+    public String currentUrl() {
         return driver.getCurrentUrl();
     }
 
@@ -172,12 +161,12 @@ public class ProductsPage {
 
 
     public String getAddToCartButtonTextInformationPage(){
-        return driver.findElement(addToCartButtonText).getText();
+        return driver.findElement(addToCartButton).getText();
     }
 
-    public String getAddToCartButtonColorInformationPage(){
-        WebElement removeButton = driver.findElement(addToCartButtonText);
-        return removeButton.getCssValue("background-color");
+    public String getAddToCartBorderColorInformationPage(){
+       Color borderColor = Color.fromString(driver.findElement(addToCartButton).getCssValue("color"));
+        return borderColor.asHex();
     }
 
 }

@@ -10,10 +10,6 @@ public class ProductsVezbiPage {
 
     WebDriver driver;
 
-    public ProductsVezbiPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
     private final By sauceSauceLabsBikeTitle = By.xpath("//*[@id=\"item_0_title_link\"]/div");
     private final By sauceLabsBikeLightDescription = By.xpath("//*[@id=\"inventory_container\"]/div/div[2]/div[2]/div[1]/div");
     private final By sauceLabsBikeLightPrice = By.xpath("//*[@id=\"inventory_container\"]/div/div[2]/div[2]/div[2]/div");
@@ -30,6 +26,9 @@ public class ProductsVezbiPage {
     private final By cartItemsList = By.className("cart_item");
     private final By cartSign = By.xpath("//*[@id=\"shopping_cart_container\"]/a/span");
 
+    public ProductsVezbiPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public String getSauceLabsBikeLightTitle() {
         return driver.findElement(sauceSauceLabsBikeTitle).getText();
@@ -47,11 +46,11 @@ public class ProductsVezbiPage {
         driver.findElement(addToCartSauceLabsBikeLight).click();
     }
 
-    public void addToCartSauceLabsBackpack(){
+    public void addToCartSauceLabsBackpack() {
         driver.findElement(addToCarSauceLabsBackpack).click();
     }
 
-    public void addToCartSauceLabsTshirt(){
+    public void addToCartSauceLabsTshirt() {
         driver.findElement(addToCartSauceLabsTshirt).click();
     }
 
@@ -83,19 +82,18 @@ public class ProductsVezbiPage {
         driver.findElement(removeSauceLabsBikeLight).click();
     }
 
-    public List<WebElement> cartList(){
+    public List<WebElement> cartList() {
        return driver.findElements(cartItemsList);
     }
 
-    public boolean isCartSignDisplayed(){
+    public boolean isCartSignDisplayed() {
         WebElement cartSignElement = driver.findElement(cartSign);
         return cartSignElement.isDisplayed();
     }
 
-    public String getCartSignNumber(){
+    public String getCartSignNumber() {
         return driver.findElement(cartSign).getText();
     }
-
 
 }
 

@@ -15,7 +15,7 @@ public class ProductsInformationPageTest {
     private ProductsInformationPages productsInformationPages;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
@@ -29,12 +29,12 @@ public class ProductsInformationPageTest {
     }
 
     @After
-    public void closeDriver(){
+    public void closeDriver() {
         driver.close();
     }
 
     @Test
-    public void sauceLabsBackPackInformationPageDisplayed(){
+    public void sauceLabsBackPackInformationPageDisplayed() {
         String sauceLabsBackPackDescription = "carry.allTheThings() with the sleek, " +
                 "streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
 
@@ -50,7 +50,7 @@ public class ProductsInformationPageTest {
     }
 
     @Test
-    public void backToProductsButtonTest(){
+    public void backToProductsButtonTest() {
         productsInformationPages.clickSauceLabsBackpack();
         productsInformationPages.clickBackToProducts();
 
@@ -58,7 +58,7 @@ public class ProductsInformationPageTest {
     }
 
     @Test
-    public void sauceSauceLabsFleeceJacketInformationPageDisplayed(){
+    public void sauceSauceLabsFleeceJacketInformationPageDisplayed() {
         String SauceLabsFleeceJacketDescription = "It's not every day that you come across a midweight " +
                 "quarter-zip fleece jacket capable of handling everything " +
                 "from a relaxing day outdoors to a busy day at the office.";
@@ -73,4 +73,5 @@ public class ProductsInformationPageTest {
         assertEquals(SauceLabsFleeceJacketDescription,productsInformationPages.getSauceLabsFleeceJacketDescription());
         assertEquals("$49.99",productsInformationPages.getSauceLabsFleeceJacketPrice());
     }
+
 }

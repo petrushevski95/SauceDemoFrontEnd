@@ -33,7 +33,7 @@ public class SliderMenuPageTest {
     }
 
     @Test
-    public void allItemsButtonTest(){
+    public void allItemsButtonTest() {
         sliderMenuPage.clickSauceLabsBackpack();
         assertTrue(sliderMenuPage.isOnTheSauceLabsBackpackPage());
         sliderMenuPage.clickMenuButton();
@@ -43,7 +43,7 @@ public class SliderMenuPageTest {
     }
 
     @Test
-    public void aboutButtonTest(){
+    public void aboutButtonTest() {
         sliderMenuPage.clickMenuButton();
         assertTrue(sliderMenuPage.isMenuDisplayed());
         sliderMenuPage.clickAbout();
@@ -51,7 +51,7 @@ public class SliderMenuPageTest {
     }
 
     @Test
-    public void logOutButtonTest(){
+    public void logOutButtonTest() {
         sliderMenuPage.clickMenuButton();
         assertTrue(sliderMenuPage.isMenuDisplayed());
         sliderMenuPage.clickLogout();
@@ -59,7 +59,7 @@ public class SliderMenuPageTest {
     }
 
     @Test
-    public void resetAppStateButtonTest(){ //bug found: remove buttons do not reset!
+    public void resetAppStateButtonTest() { //bug found: remove buttons do not reset!
         sliderMenuPage.addToCartSauceLabsBikeLight();
         assertEquals("Remove",sliderMenuPage.getRemoveSauceLabsBikeLightText());
         assertEquals("1",sliderMenuPage.getCartItemCounter());
@@ -78,7 +78,7 @@ public class SliderMenuPageTest {
         sliderMenuPage.clickResetAppState();
         assertFalse(sliderMenuPage.isCartItemCounterDisplayed());
 
-        // NE PROAGJAAT ZASHO E BUG TREBA DA GI VRATI REMOVE NA ADD TO CART ONI OSTANUVAAT NA REMOVE
+        // NE PROAGJAAT ZASHO E BUG TREBA DA GI VRATI OD REMOVE NA ADD TO CART, ONI OSTANUVAAT NA REMOVE
 //        assertEquals("Add to cart",sliderMenuPage.getAddToCartSauceLabsBackpackText());
 //        assertEquals("Add to cart",sliderMenuPage.getAddToCartSauceLabsBikeLightText());
 //        assertEquals("Add to cart",sliderMenuPage.getAddToCartSauceLabsFleeceJacketText());

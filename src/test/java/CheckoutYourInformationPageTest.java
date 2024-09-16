@@ -17,7 +17,7 @@ public class CheckoutYourInformationPageTest {
     private CheckoutYourInformationPage checkoutInformationPage;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
@@ -36,12 +36,12 @@ public class CheckoutYourInformationPageTest {
     }
 
     @After
-    public void closeDriver(){
+    public void closeDriver() {
         driver.close();
     }
 
     @Test
-    public void cancelButtonTest(){
+    public void cancelButtonTest() {
         productsPage.clickCartButton();
         yourCartPage.clickCheckoutButton();
         checkoutInformationPage.clickCancelButton();
@@ -50,7 +50,7 @@ public class CheckoutYourInformationPageTest {
     }
 
     @Test
-    public void successfulCheckoutTest(){
+    public void successfulCheckoutTest() {
         checkoutInformationPage.enterFirstName("Gorjan");
         checkoutInformationPage.enterLastName("Petrushevski");
         checkoutInformationPage.enterZipPostalCode("280801995");
@@ -61,14 +61,14 @@ public class CheckoutYourInformationPageTest {
     }
 
     @Test
-    public void errorMessageFirstNameIsRequiredTest(){
+    public void errorMessageFirstNameIsRequiredTest() {
         checkoutInformationPage.clickContinueButton();
 
         assertEquals("Error: First Name is required",checkoutInformationPage.getErrorMessage());
     }
 
     @Test
-    public void errorMessageLastNameIsRequiredTest(){
+    public void errorMessageLastNameIsRequiredTest() {
         checkoutInformationPage.enterFirstName("Gorjan");
         checkoutInformationPage.clickContinueButton();
 
@@ -76,7 +76,7 @@ public class CheckoutYourInformationPageTest {
     }
 
     @Test
-    public void errorMessagePostalCodeIsRequiredTest(){
+    public void errorMessagePostalCodeIsRequiredTest() {
         checkoutInformationPage.enterFirstName("Gorjan");
         checkoutInformationPage.enterLastName("Petrushevski");
         checkoutInformationPage.clickContinueButton();

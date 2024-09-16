@@ -24,15 +24,15 @@ public class YourCartPage {
     private final By checkoutButton = By.id("checkout");
     private final By continueShopping = By.id("continue-shopping");
 
-    public YourCartPage (WebDriver driver){
+    public YourCartPage (WebDriver driver) {
        this.driver = driver;
     }
 
-    public void addToCartSauceLabsBackpack(){
+    public void addToCartSauceLabsBackpack() {
         driver.findElement(sauceLabsBackpack).click();
     }
 
-    public void clickCartIcon(){
+    public void clickCartIcon() {
         driver.findElement(cartButton).click();
     }
 
@@ -44,11 +44,11 @@ public class YourCartPage {
         }
     }
 
-    public String getCartSignCounter(){
+    public String getCartSignCounter() {
         return driver.findElement(cartSign).getText();
     }
 
-    public boolean isCartListDisplayed(){
+    public boolean isCartListDisplayed() {
         return driver.findElement(cartList).isDisplayed();
     }
 
@@ -64,23 +64,23 @@ public class YourCartPage {
         return driver.findElement(sauceLabsBikeLightInTheCartPrice).getText();
     }
 
-    public String getSauceLabsBackpackTitle(){
+    public String getSauceLabsBackpackTitle() {
         return driver.findElement(sauceLabsBackpackTitle).getText();
     }
 
-    public String getSauceLabsBackpackQuantity(){
+    public String getSauceLabsBackpackQuantity() {
         return driver.findElement(sauceLabsBackpackQuantity).getText();
     }
 
-    public String getSauceLabsBackpackDescription(){
+    public String getSauceLabsBackpackDescription() {
         return driver.findElement(sauceLabsBackpackDescription).getText();
     }
 
-    public String getSauceLabsBackpackPrice(){
+    public String getSauceLabsBackpackPrice() {
         return driver.findElement(sauceLabsBackpackPrice).getText();
     }
 
-    public void removeSauceLabsBackpack(){
+    public void removeSauceLabsBackpack() {
         driver.findElement(removeSauceLabsBackpackButton).click();
     }
 
@@ -96,7 +96,7 @@ public class YourCartPage {
         driver.findElement(checkoutButton).click();
     }
 
-    public boolean isRedirectedToTheCheckoutPage(){
+    public boolean isRedirectedToTheCheckoutPage() {
         if(driver.getCurrentUrl().equals("https://www.saucedemo.com/checkout-step-one.html")){
         return true;
         } else {
@@ -104,18 +104,18 @@ public class YourCartPage {
         }
     }
 
-    public void clickContinueShopping(){
+    public void clickContinueShopping() {
         driver.findElement(continueShopping).click();
     }
 
-    public boolean isRedirectedToTheProductsPage(){
+    public boolean isRedirectedToTheProductsPage() {
         if(driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html")){
             return true;
         } else {
             return false;}
         }
 
-    public boolean isRedirectedToTheCartPage(){
+    public boolean isRedirectedToTheCartPage() {
         if(driver.getCurrentUrl().equals("https://www.saucedemo.com/cart.html")){
             return true;
         } else {
@@ -123,7 +123,7 @@ public class YourCartPage {
         }
     }
 
-    }
+}
 
 
 

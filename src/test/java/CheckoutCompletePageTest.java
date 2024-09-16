@@ -10,13 +10,11 @@ import static org.junit.Assert.assertTrue;
 
 public class CheckoutCompletePageTest {
 
-    
     private WebDriver driver;
     private CheckoutCompletePage checkoutCompletePage;
-    //TESTESTESEASEASTASTASTASTASTASTAST
 
     @Before
-    public void setUp(){
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
@@ -33,18 +31,18 @@ public class CheckoutCompletePageTest {
     }
 
     @After
-    public void closeDriver(){
+    public void closeDriver() {
         driver.close();
     }
 
     @Test
-    public void backHomeButtonTest(){
+    public void backHomeButtonTest() {
         checkoutCompletePage.clickBackHomeButton();
         assertTrue(checkoutCompletePage.isRedirectedToProductsPage());
     }
 
     @Test
-    public void textDisplayed(){
+    public void textDisplayed() {
         String orderCompleteMessage = "Your order has been dispatched, " +
                 "and will arrive just as fast as the pony can get there!";
 
@@ -56,7 +54,7 @@ public class CheckoutCompletePageTest {
 
 
     @Test
-    public void backHomeButtonTextFontColorTest(){
+    public void backHomeButtonTextFontColorTest() {
         assertEquals("#3ddc91",checkoutCompletePage.getBackHomeButtonBackgroundColor());
         assertEquals("#132322",checkoutCompletePage.getBackHomeButtonTextColor());
         assertEquals("16px",checkoutCompletePage.getBackHomeButtonFontSize());
@@ -64,12 +62,13 @@ public class CheckoutCompletePageTest {
     }
 
     @Test
-    public void pictureDisplayedTest(){
+    public void pictureDisplayedTest() {
         assertTrue(checkoutCompletePage.isSignPictureDisplayed());
     }
 
     @Test
-    public void checkoutCompletePageLogoDisplayedTest(){
+    public void checkoutCompletePageLogoDisplayedTest() {
         assertTrue(checkoutCompletePage.isCheckoutCompletePageLogoDisplayed());
     }
+
 }

@@ -9,11 +9,12 @@ import pages.YourCartPage;
 
 import static org.junit.Assert.*;
 
-public class ProductsVezbiPageTest {
+public class ProductsVezbiOdCasPageTest {
 
     private WebDriver driver;
     private ProductsVezbiPage productsVezbiPage;
     private YourCartPage yourCartPage;
+
     @Before
     public void setUp() {
         driver = new ChromeDriver();
@@ -35,7 +36,7 @@ public class ProductsVezbiPageTest {
     }
 
     @Test
-    public void sauceLabsBikeLightAssertionsTest(){
+    public void sauceLabsBikeLightAssertionsTest() {
         String description = "A red light isn't the desired state in testing " +
                 "but it sure helps when riding your bike at night. Water-resistant " +
                 "with 3 lighting modes, 1 AAA battery included.";
@@ -46,7 +47,7 @@ public class ProductsVezbiPageTest {
     }
 
     @Test
-    public void sauceLabsBikeLightInTheCartTest(){
+    public void sauceLabsBikeLightInTheCartTest() {
         productsVezbiPage.addToCartSauceLabsBikeLight();
         productsVezbiPage.clickCartIcon();
 
@@ -60,7 +61,7 @@ public class ProductsVezbiPageTest {
     }
 
     @Test
-    public void sauceLabsBikeLightCartVsProductPage(){
+    public void sauceLabsBikeLightCartVsProductPage() {
         String sauceLabsBikeLightProductsPageTitle = productsVezbiPage.getSauceLabsBikeLightTitle();
         String sauceLabsBikeLightProductsPageDescription = productsVezbiPage.getSauceLabsBikeLightDescription();
         String sauceLabsBikeLightProductsPageDescriptionPrice = productsVezbiPage.getSauceLabsBikeLightPrice();
@@ -77,7 +78,7 @@ public class ProductsVezbiPageTest {
     }
 
     @Test
-    public void continueShoppingButtonTest(){
+    public void continueShoppingButtonTest() {
         productsVezbiPage.clickCartIcon();
         productsVezbiPage.clickContinueShopping();
 
@@ -85,7 +86,7 @@ public class ProductsVezbiPageTest {
     }
 
     @Test
-    public void checkoutButtonTest(){
+    public void checkoutButtonTest() {
         productsVezbiPage.clickCartIcon();
         productsVezbiPage.clickCheckoutButton();
 
@@ -102,7 +103,7 @@ public class ProductsVezbiPageTest {
     }
 
     @Test
-    public void cartCounter(){
+    public void cartCounter() {
         productsVezbiPage.addToCartSauceLabsBackpack();
         productsVezbiPage.addToCartSauceLabsTshirt();
         productsVezbiPage.addToCartSauceLabsBikeLight();
@@ -111,4 +112,5 @@ public class ProductsVezbiPageTest {
         assertEquals("3",productsVezbiPage.getCartSignNumber());
 
     }
+
 }

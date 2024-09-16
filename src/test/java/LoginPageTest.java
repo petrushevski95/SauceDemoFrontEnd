@@ -27,7 +27,7 @@ public class LoginPageTest {
     }
 
     @Test
-    public void successfulLoginTest(){
+    public void successfulLoginTest() {
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauce");
         loginPage.clickLogin();
@@ -38,7 +38,7 @@ public class LoginPageTest {
     }
 
     @Test
-    public void errorMessageEmptyPasswordFieldTest(){
+    public void errorMessageEmptyPasswordFieldTest() {
         loginPage.enterUsername("standard_user");
         loginPage.clickLogin();
 
@@ -47,7 +47,7 @@ public class LoginPageTest {
     }
 
     @Test
-    public void errorMessageInvalidPassword(){
+    public void errorMessageInvalidPassword() {
         loginPage.enterUsername("standard_user");
         loginPage.enterPassword("secret_sauc");
         loginPage.clickLogin();
@@ -58,7 +58,7 @@ public class LoginPageTest {
     }
 
     @Test
-    public void errorMessageInvalidUsernameTest(){
+    public void errorMessageInvalidUsernameTest() {
         loginPage.enterUsername("standard_user1");
         loginPage.clickLogin();
 
@@ -68,9 +68,20 @@ public class LoginPageTest {
     }
 
     @Test
-    public void errorMessageEmptyFields(){
+    public void errorMessageEmptyFields() {
         loginPage.clickLogin();
 
         assertEquals("Epic sadface: Username is required",loginPage.getErrorMessage());
     }
+
+    @Test
+    public void colorAsserts() {
+        loginPage.clickLogin();
+
+        assertEquals("#e2231a",loginPage.getUsernameFieldBottomBorderColor());
+        assertEquals("#e2231a",loginPage.getPasswordFieldBottomBorderColor());
+        assertEquals("#e2231a",loginPage.getErrorMessageBackgroundColor());
+        assertEquals("#3ddc91",loginPage.getLoginButtonBackgroundColor());
+    }
+
 }

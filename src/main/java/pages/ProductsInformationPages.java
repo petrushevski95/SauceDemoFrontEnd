@@ -19,79 +19,79 @@ public class ProductsInformationPages {
     private final By sauceLabsFleeceJacketDescription = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[2]");
     private final By sauceLabsFleeceJacketPrice = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[3]");
 
-   public ProductsInformationPages(WebDriver driver){
+   public ProductsInformationPages(WebDriver driver) {
         this.driver = driver;
    }
 
-   public boolean isSauceLabsBackpackPictureDisplayed(){
+   public boolean isSauceLabsBackpackPictureDisplayed() {
         return driver.findElement(sauceLabsBackpackPicture).isDisplayed();
    }
 
-   public boolean isSauceLabsBackpackTitleDisplayed(){
+   public boolean isSauceLabsBackpackTitleDisplayed() {
        return driver.findElement(sauceLabsBackpackTitle).isDisplayed();
    }
 
-   public boolean isSauceLabsBackpackDescriptionDisplayed(){
+   public boolean isSauceLabsBackpackDescriptionDisplayed() {
         return driver.findElement(sauceLabsBackpackDescription).isDisplayed();
    }
 
-   public boolean isSauceLabsBackpackPriceDisplayed(){
+   public boolean isSauceLabsBackpackPriceDisplayed() {
         return driver.findElement(sauceLabsBackPackPrice).isDisplayed();
    }
 
-   public String getSauceLabsBackpackTitleText(){
+   public String getSauceLabsBackpackTitleText() {
         return driver.findElement(sauceLabsBackpackTitle).getText();
    }
 
-   public String getSauceLabsBackpackDescription(){
+   public String getSauceLabsBackpackDescription() {
         return driver.findElement(sauceLabsBackpackDescription).getText();
    }
 
-   public String getSauceLabsBackPackPrice(){
+   public String getSauceLabsBackPackPrice() {
         return driver.findElement(sauceLabsBackPackPrice).getText();
    }
 
-   public void clickSauceLabsBackpack(){
+   public void clickSauceLabsBackpack() {
         driver.findElement(sauceLabsBackpack).click();
    }
 
-   public void clickSauceLabsFleeceJacket(){
+   public void clickSauceLabsFleeceJacket() {
         driver.findElement(sauceLabsFleeceJacket).click();
    }
 
-   public void clickBackToProducts(){
+   public void clickBackToProducts() {
         driver.findElement(backToProducts).click();
    }
 
-   public boolean isBackToProductsPage(){
+   public boolean isBackToProductsPage() {
         return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html");
    }
 
-   public boolean isSauceLabsFleeceJacketPictureDisplayed(){
+   public boolean isSauceLabsFleeceJacketPictureDisplayed() {
         return driver.findElement(sauceLabsFleeceJacketPicture).isDisplayed();
    }
 
-   public boolean isSauceLabsFleeceJacketTitleDisplayed(){
+   public boolean isSauceLabsFleeceJacketTitleDisplayed() {
         return driver.findElement(sauceLabsFleeceJacketTitle).isDisplayed();
    }
 
-   public boolean isSauceLabsFleeceJacketDescriptionDisplayed(){
+   public boolean isSauceLabsFleeceJacketDescriptionDisplayed() {
         return driver.findElement(sauceLabsFleeceJacketDescription).isDisplayed();
    }
 
-   public boolean isSauceLabsFleeceJacketPriceDisplayed(){
+   public boolean isSauceLabsFleeceJacketPriceDisplayed() {
         return driver.findElement(sauceLabsFleeceJacketPrice).isDisplayed();
    }
 
-   public String getSauceLabsFleeceJacketTitleText(){
+   public String getSauceLabsFleeceJacketTitleText() {
         return driver.findElement(sauceLabsFleeceJacketTitle).getText();
    }
 
-   public String getSauceLabsFleeceJacketDescription(){
+   public String getSauceLabsFleeceJacketDescription() {
         return driver.findElement(sauceLabsFleeceJacketDescription).getText();
    }
 
-   public String getSauceLabsFleeceJacketPrice(){
+   public String getSauceLabsFleeceJacketPrice() {
         return driver.findElement(sauceLabsFleeceJacketPrice).getText();
    }
 

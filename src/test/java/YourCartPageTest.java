@@ -28,12 +28,12 @@ public class YourCartPageTest {
     }
 
     @After
-    public void closeDriver(){
+    public void closeDriver() {
         driver.close();
     }
 
     @Test
-    public void itemDisplayCartListTest(){
+    public void itemDisplayCartListTest() {
         String sauceLabsBackPackDescription = "carry.allTheThings() with the sleek, " +
                 "streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
 
@@ -50,7 +50,7 @@ public class YourCartPageTest {
     }
 
     @Test
-    public void removeButtonTest(){
+    public void removeButtonTest() {
         yourCartPage.addToCartSauceLabsBackpack();
         yourCartPage.clickCartIcon();
         yourCartPage.removeSauceLabsBackpack();
@@ -60,7 +60,7 @@ public class YourCartPageTest {
     }
 
     @Test
-    public void continueShoppingButtonTest(){
+    public void continueShoppingButtonTest() {
         yourCartPage.clickCartIcon();
         yourCartPage.clickContinueShopping();
 
@@ -68,10 +68,11 @@ public class YourCartPageTest {
     }
 
     @Test
-    public void checkoutButtonTest(){
+    public void checkoutButtonTest() {
         yourCartPage.clickCartIcon();
         yourCartPage.clickCheckoutButton();
 
         assertTrue(yourCartPage.isRedirectedToTheCheckoutPage());
     }
+
 }
