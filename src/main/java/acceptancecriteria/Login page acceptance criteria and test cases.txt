@@ -1,0 +1,81 @@
+ACCEPTANCE CRITERIA:
+
+
+Test scenario 1: Successful login (valid username and password)
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user enters valid username
+AND the user enters valid password,
+WHEN the user clicks the login button
+THEN user is successfully logged in and redirected to the products page "https://www.saucedemo.com/inventory.html"
+
+
+Test scenario 2: Unsuccessful login (invalid username)
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user enters invalid username
+WHEN the user clicks the login button
+THEN error message is displayed "Epic sadface: Username and password do not match any user in this service"
+
+
+Test scenario 3: Unsuccessful login (valid username but invalid password)
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user enters username
+AND the user enters invalid password
+WHEN the user clicks the login button
+THEN error message is displayed "Epic sadface: Username and password do not match any user in this service"
+
+
+Test scenario 4: Unsuccessful login (valid username but empty password)
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user enters username
+AND the user leaves password field empty
+WHEN the user clicks the login button
+THEN error message is displayed "Epic sadface: Password is required"
+
+
+Test scenario 5: Empty fields
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user leaves username and password fields empty
+WHEN the user just clicks the login button
+THEN error message is displayed "Epic sadface: Username is required"
+
+
+TEST CASES: ------------------------------------------------------------------------------------------------------------
+
+
+Test case 1: Successful login (valid username and valid password) (PASS)
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user enters "standard_user" into the username field
+AND the user enters "secret_sauce" into the password field
+WHEN the user click the login button
+THEN user is successfully log in and redirected to the products page "https://www.saucedemo.com/inventory.html"
+
+
+Test case 2: Unsuccessful login (valid username but invalid password) (PASS)
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user enters "standard_user" into the username field
+AND the user enters "secret_sauce1" into the password field
+WHEN the user click the login button,
+THEN error message is displayed "Epic sadface: Username and password do not match any user in this service"
+
+
+Test case 3: Unsuccessful login (invalid username) (PASS)
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user enters "standard_user1" into the username field
+WHEN the user click the login button
+THEN error message is displayed "Epic sadface: Username and password do not match any user in this service"
+
+
+Test case 4: Unsuccessful login (valid username but empty password)
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user enters “standard_user” into the username field
+AND the user leaves password field empty
+WHEN the user clicks the login button
+THEN error message is displayed “Epic sadface: Password is required"
+
+
+Test case 5: Empty fields
+GIVEN the user is on the login page "https://www.saucedemo.com "
+AND the user leaves username field empty (types nothing)
+AND the user leaves password field empty (types nothing)
+WHEN the user just click the login button
+THEN error message is displayed "Epic sadface: Username is required"

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.Color;
 
 public class LoginPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     private final By usernameField = By.id("user-name");
     private final By passwordField = By.id("password");
@@ -36,8 +36,8 @@ public class LoginPage {
         return driver.findElement(errorMessage).getText();
     }
 
-    public String getUrl() {
-        return driver.getCurrentUrl();
+    public boolean isToProductsPage() {
+        return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html");
     }
 
     public String getUsernameFieldBottomBorderColor() {
@@ -59,7 +59,5 @@ public class LoginPage {
         Color bottomBorderColor = Color.fromString(driver.findElement(loginButton).getCssValue("background-color"));
         return bottomBorderColor.asHex();
     }
-
-
 
 }

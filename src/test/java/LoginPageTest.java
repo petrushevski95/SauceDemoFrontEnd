@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class LoginPageTest {
 
@@ -32,9 +33,26 @@ public class LoginPageTest {
         loginPage.enterPassword("secret_sauce");
         loginPage.clickLogin();
 
-        String expectedUrl = "https://www.saucedemo.com/inventory.html";
+        assertTrue(loginPage.isToProductsPage());
+    }
 
-        assertEquals(expectedUrl,loginPage.getUrl());
+    @Test
+    public void errorMessageInvalidPasswordTest() {
+        loginPage.enterUsername("standard_user");
+        loginPage.enterPassword("secret_sauc");
+        loginPage.clickLogin();
+
+        String errorMessage = "Epic sadface: Username and password do not match any user in this service";
+
+        assertEquals(errorMessage,loginPage.getErrorMessage());
+    }
+
+    @Test
+    public void errorMessageInvalidUsernameTestTest() {
+        loginPage.enterUsername("standard_user1");
+        loginPage.clickLogin();
+
+        assertEquals("Epic sadface: Password is required",loginPage.getErrorMessage());
     }
 
     @Test
@@ -46,36 +64,16 @@ public class LoginPageTest {
         assertEquals(errorMessage,loginPage.getErrorMessage());
     }
 
-    @Test
-    public void errorMessageInvalidPassword() {
-        loginPage.enterUsername("standard_user");
-        loginPage.enterPassword("secret_sauc");
-        loginPage.clickLogin();
-
-        String errorMessage = "Epic sadface: Username and password do not match any user in this service";
-
-        assertEquals(errorMessage,loginPage.getErrorMessage());
-    }
 
     @Test
-    public void errorMessageInvalidUsernameTest() {
-        loginPage.enterUsername("standard_user1");
-        loginPage.clickLogin();
-
-        String errorMessage = "Epic sadface: Password is required";
-
-        assertEquals(errorMessage,loginPage.getErrorMessage());
-    }
-
-    @Test
-    public void errorMessageEmptyFields() {
+    public void errorMessageEmptyFieldsTest() {
         loginPage.clickLogin();
 
         assertEquals("Epic sadface: Username is required",loginPage.getErrorMessage());
     }
 
     @Test
-    public void colorAsserts() {
+    public void colorAssertsTest() {
         loginPage.clickLogin();
 
         assertEquals("#e2231a",loginPage.getUsernameFieldBottomBorderColor());

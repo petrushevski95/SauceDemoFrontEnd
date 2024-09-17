@@ -1,0 +1,68 @@
+ACCEPTANCE CRITERIA:
+
+Test scenario 1: Product information (click on the text)
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+WHEN user clicks on the product name (text)
+AND user is redirected to the product information page “"https://www.saucedemo.com/inventory-item.html?id=[id]"
+THEN information about the products are displayed
+
+
+Test scenario 2: “Back to products” button
+NOTE 1: User must be logged in
+GIVEN user is on the product page “https://www.saucedemo.com/inventory.html”
+AND user clicks on item’s name
+AND user is redirected to item’s information page
+AND there is “Back to products” button (top left corner)
+WHEN user clicks on the “Back to products” button
+THEN user is redirected to the products page “https://www.saucedemo.com/inventory.html”
+
+
+Test scenario 3: "Remove" button
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the product page “https://www.saucedemo.com/inventory.html”
+AND user click on the product name
+AND user is redirected to the product information page
+WHEN user clicks "Remove" button
+THEN item is removed from cart inventory
+AND "Remove" button text change to "Add to cart"
+AND button border color is changed black
+AND the red sign counter on the cart icon disappears
+
+
+TEST CASES: ------------------------------------------------------------------------------------------------------------
+
+
+Test case 1: Product information (click on the text) (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html",
+WHEN user clicks on the "Sauce Labs Backpack" (text) (right from the picture),
+THEN user is redirected to the "https://www.saucedemo.com/inventory-item.html?id=4" page.
+AND "Sauce Labs Backpack" product title is displayed
+AND product picture is displayed
+AND description  "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection" is displayed
+AND "$29.99" price is displayed
+
+
+Test case 2: “Back to products” button (text) (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the product page “https://www.saucedemo.com/inventory.html”
+AND user clicks on “Sauce Labs Backpack” item
+AND user is redirected to the “https://www.saucedemo.com/inventory-item.html?id=4“
+AND there is “Back to products” button (top left corner)
+WHEN user click on the “Back to products” button
+THEN user is redirected to the products page “https://www.saucedemo.com/inventory.html”
+
+
+Test case 3: "Remove" button
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the product page “https://www.saucedemo.com/inventory.html”
+AND user click on the "Sauce Labs Backpack"
+AND user is redirected to the product information page "https://www.saucedemo.com/inventory-item.html?id=4"
+WHEN user clicks "Remove" button
+THEN item is removed from cart inventory
+AND "Remove" button text change to "Add to cart"
+AND button border color is changed to black/grey
+AND the red sign counter on the cart icon disappears

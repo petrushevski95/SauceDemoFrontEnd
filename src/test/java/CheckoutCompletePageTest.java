@@ -27,7 +27,7 @@ public class CheckoutCompletePageTest {
         loginPage.enterPassword("secret_sauce");
         loginPage.clickLogin();
 
-        driver.get("https://www.saucedemo.com/checkout-complete.html");
+        driver.get("https://www.saucedemo.com/checkout-complete.html"); //Bug found
     }
 
     @After

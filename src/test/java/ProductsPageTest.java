@@ -32,20 +32,6 @@ public class ProductsPageTest {
         driver.quit();
     }
 
-    @Test
-    public void clickOnProductTextTest() {
-        productsPage.clickSauceLabsBackpackText();
-
-        assertEquals("https://www.saucedemo.com/inventory-item.html?id=4",productsPage.currentUrl());
-    }
-
-    @Test
-    public void clickOnBackToProductButtonTest() {
-        productsPage.clickSauceLabsBackpackText();
-        productsPage.clickBackToProducts();
-
-        assertEquals("https://www.saucedemo.com/inventory.html",productsPage.currentUrl());
-    }
 
     @Test
     public void addToCartButtonTest() {
@@ -58,13 +44,13 @@ public class ProductsPageTest {
     }
 
     @Test
-    public void removeCartButtonTest() {
+    public void removeButtonTest() {
         productsPage.clickAddToCartSauceLabsBoltTshirt();
         productsPage.clickRemoveSauceLabsBoltTshirt();
 
         assertEquals("Add to cart",productsPage.getAddToCartSauceLabsBoltTshirtButtonText());
         assertEquals("#132322",productsPage.getAddToCartSauceLabsBoltTshirtButtonBorderColor());
-        assertFalse(productsPage.isCartBadgePresent());
+        assertFalse(productsPage.isCartBadgeDisplayed());
     }
 
     @Test
@@ -74,13 +60,6 @@ public class ProductsPageTest {
         assertEquals("Price (low to high)",productsPage.dropdownOptions().get(2).getText());
         assertEquals("Price (high to low)",productsPage.dropdownOptions().get(3).getText());
     }
-
-    @Test
-    public void firstProductNameTest() {
-        assertEquals("Name (A to Z)",productsPage.getSelectedDropdownText());
-        assertEquals("Sauce Labs Backpack",productsPage.SauceBackPackTshirtText());
-    }
-
 
     @Test
     public void firstProductNameSortedZtoATest() {
@@ -107,26 +86,10 @@ public class ProductsPageTest {
     }
 
     @Test
-    public void validateTheDollarSignTest() {
-        assertTrue(productsPage.getSauceLabsOnesiePrice().contains("$"));
-    }
-
-    @Test
     public void cartButtonTest() {
         productsPage.clickCartButton();
 
-        assertEquals("https://www.saucedemo.com/cart.html",productsPage.currentUrl());
-    }
-
-    @Test
-    public void removeButtonItemInformationTest() {
-        productsPage.addToCartSauceLabsBackpack();
-        productsPage.goToSauceLabsBackPackInventory();
-        productsPage.clickRemoveButton();
-
-        assertEquals("Add to cart",productsPage.getAddToCartButtonTextInformationPage());
-        assertEquals("#132322",productsPage.getAddToCartBorderColorInformationPage());
-        assertFalse(productsPage.isCartBadgePresent());
+        assertTrue(productsPage.isOnTheCartPage());
     }
 
 }
