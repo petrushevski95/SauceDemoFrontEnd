@@ -1,7 +1,7 @@
 ACCEPTANCE CRITERIA:
 
 
-Test scenario 1: Cart inventory box on the cart page
+Test scenario 1: Cart inventory box
 “https://www.saucedemo.com/checkout-step-two.html
 NOTE 1: User must be logged in
 NOTE 2: At least one item must be added into the cart box
@@ -10,12 +10,25 @@ WHEN item is added into the cart
 THEN cart inventory box is shown into the cart page “https://www.saucedemo.com/cart.html”
 
 
-Test scenario 2: “Remove” button into the cart box inventory
+Test scenario 2: “Remove” button
 NOTE 1: User must be logged in
 NOTE 2: At least one item must be added into the cart box
 GIVEN user is on the “https://www.saucedemo.com/cart.html” page
 WHEN user clicks the “Remove” button (right side in the cart box inventory)
 THEN item is successfully removed from the cart box inventory
+
+Test scenario 3: “Continue shopping” button
+NOTE 1: User must be logged in
+GIVEN user is on the “https://www.saucedemo.com/cart.html” page
+WHEN user clicks the “Continue Shopping” button
+THEN user is redirected to the products page "https://www.saucedemo.com/inventory.html"
+
+
+Test scenario 4: "Checkout" button
+NOTE 1: User must be logged in
+GIVEN user is on the “https://www.saucedemo.com/cart.html” page
+WHEN user clicks the “Checkout” button
+THEN user is redirected to the checkout your information page "https://www.saucedemo.com/checkout-step-one.html"
 
 
 TEST CASES: ------------------------------------------------------------------------------------------------------------
@@ -41,3 +54,16 @@ AND an item with a name “Sauce Labs Backpack” is in the cart box inventory
 WHEN user clicks the “Remove” button (right side in the cart box inventory)
 THEN “Sauce Labs Backpack” is successfully removed from the cart box inventory
 AND the number on the cart icon is also removed
+
+
+Test case 3: “Continue shopping” button (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the “https://www.saucedemo.com/cart.html” page
+WHEN user clicks the “Continue Shopping” button
+THEN user is redirected to the products page "https://www.saucedemo.com/inventory.html"
+
+Test scenario 4: "Checkout" button (PASS) (bug found and reported...checkout button is redirecting to the next page without any product into the cart inventory)
+NOTE 1: User must be logged in
+GIVEN user is on the “https://www.saucedemo.com/cart.html” page
+WHEN user clicks the “Checkout” button
+THEN user is redirected to the checkout your information page "https://www.saucedemo.com/checkout-step-one.html"
