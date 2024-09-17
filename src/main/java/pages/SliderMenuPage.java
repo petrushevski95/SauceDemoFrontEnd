@@ -110,22 +110,6 @@ public class SliderMenuPage {
         }
     }
 
-    public String getAddToCartSauceLabsBikeLightText(){
-        return driver.findElement(addToCartSauceLabsBikeLight).getText();
-    }
-
-    public String getAddToCartSauceLabsBackpackText(){
-        return driver.findElement(addToCartSauceLabsBackpack).getText();
-    }
-
-    public String getAddToCartSauceLabsOnesie(){
-        return driver.findElement(addToCartSauceLabsOnesie).getText();
-    }
-
-    public String getAddToCartSauceLabsFleeceJacketText(){
-        return driver.findElement(addToCartSauceLabsFleeceJacket).getText();
-    }
-
     public String getRemoveSauceLabsBikeLightText(){
         return driver.findElement(removeSauceLabsBikeLight).getText();
     }
@@ -141,7 +125,5 @@ public class SliderMenuPage {
     public String getRemoveSauceLabsOnesieText(){
         return driver.findElement(removeSauceLabsOnesie).getText();
     }
-
-
 
 }

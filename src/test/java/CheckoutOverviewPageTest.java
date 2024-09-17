@@ -20,7 +20,7 @@ public class CheckoutOverviewPageTest {
     private pages.CheckoutOverviewPage checkoutOverviewPage;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
@@ -38,12 +38,12 @@ public class CheckoutOverviewPageTest {
     }
 
     @After
-    public void closeDriver(){
+    public void closeDriver() {
         driver.close();
     }
 
     @Test
-    public void paymentInformationValidation() throws InterruptedException {
+    public void paymentInformationValidation() {
         productsPage.clickAddToCartSauceLabsFleeceJacket();
         productsPage.clickAddToCartSauceLabsBikeLight();
         productsPage.clickCartButton();
@@ -69,4 +69,5 @@ public class CheckoutOverviewPageTest {
 
         assertEquals(checkoutOverviewPage.getTotal(),checkoutOverviewPage.overallPrice(),0.0);
     }
+
 }

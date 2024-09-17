@@ -1,0 +1,43 @@
+ACCEPTANCE CRITERIA:
+
+
+Test scenario 1: Cart inventory box on the cart page
+“https://www.saucedemo.com/checkout-step-two.html
+NOTE 1: User must be logged in
+NOTE 2: At least one item must be added into the cart box
+GIVEN user is on the cart page “https://www.saucedemo.com/cart.html”
+WHEN item is added into the cart
+THEN cart inventory box is shown into the cart page “https://www.saucedemo.com/cart.html”
+
+
+Test scenario 2: “Remove” button into the cart box inventory
+NOTE 1: User must be logged in
+NOTE 2: At least one item must be added into the cart box
+GIVEN user is on the “https://www.saucedemo.com/cart.html” page
+WHEN user clicks the “Remove” button (right side in the cart box inventory)
+THEN item is successfully removed from the cart box inventory
+
+
+TEST CASES: ------------------------------------------------------------------------------------------------------------
+
+
+Test case 1: Item display into the cart box inventory on the cart page (https://www.saucedemo.com/cart.html) (PASS) (also bug found and reported "Description name")
+NOTE 1: User must be logged in
+NOTE 2: At least one item must be added into the cart box
+GIVEN user is on the cart page “https://www.saucedemo.com/cart.html”
+WHEN item with a name “Sauce Labs Backpack is added into the cart
+AND cart inventory box is shown into the cart page
+AND a name “Sauce Labs Backpack” of the item is displayed in the box (on the top)
+AND a description “carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.” of the item is displayed in the cart box inventory (under the name)
+THEN a price “$29.99” is displayed in cart box inventory (under the description)
+AND a quantity “1” is displayed  in the cart box inventory (left from the name)
+
+
+Test case 2: “Remove” button into the cart box inventory (PASS)
+NOTE 1: User must be logged in
+NOTE 2: At least one item must be added into the cart box
+GIVEN user is on the “https://www.saucedemo.com/cart.html” page
+AND an item with a name “Sauce Labs Backpack” is in the cart box inventory
+WHEN user clicks the “Remove” button (right side in the cart box inventory)
+THEN “Sauce Labs Backpack” is successfully removed from the cart box inventory
+AND the number on the cart icon is also removed

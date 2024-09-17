@@ -1,0 +1,101 @@
+ACCEPTANCE CRITERIA:
+
+
+Test scenario 1: “Add to cart” button
+NOTE 1: User must be logged in
+GIVEN user is on the products page “https://www.saucedemo.com/inventory.html”
+WHEN user clicks on “Add to cart” button
+AND “Add to cart” text is changed to “Remove” button text
+AND the borderline of the button is changed to red colour
+AND a red sign with number shows up on the cart button in the top right corner
+THEN  item is successfully added to cart inventory
+
+
+Test scenario 2: “Remove” button
+NOTE 1: User must be logged in
+NOTE 2: “Add to cart” button must be clicked
+GIVEN user is on the products page “https://www.saucedemo.com/inventory.html”
+WHEN user clicks on “Remove” button
+THEN selected item is removed from cart inventory
+
+
+Test scenario 3: Dropdown
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+AND user clicks on dropdown in the top right corner
+AND four fields from the dropdown are shown with values (Name A to Z, Name Z to A, Price low to high, Price high to low)
+WHEN user selects a field from the dropbox field
+THEN products are successfully sorted
+
+
+Test scenario 4: Cart Button
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+WHEN user clicks on cart button (top right corner)
+THEN user is redirected to the cart page (https://www.saucedemo.com/cart.html)
+
+
+TEST CASES: ------------------------------------------------------------------------------------------------------------
+
+
+Test case 1: “Add to cart” button (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the products page “https://www.saucedemo.com/inventory.html”
+WHEN user clicks on “Add to cart” button
+AND “Add to cart”  text is changed to “Remove”
+AND the borderline of the button is changed to red colour
+AND a red sign with number shows up on the cart button in the top right corner
+THEN selected items are successfully added to cart inventory.
+
+
+Test case 2: “Remove” button (PASS)
+NOTE 1: User must be logged in
+NOTE 2: “Add to cart” button must be clicked
+GIVEN user is on the products page “https://www.saucedemo.com/inventory.html”
+WHEN user clicks on “Remove” button
+AND “Remove”  text is changed to “Add to cart”
+AND the borderline of the button is changed to black colour
+AND a red sign with number is removed from the cart button in the top right corner
+THEN selected item is removed from cart inventory
+
+
+Test case 3: Dropdown options (text) (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the products page “https://www.saucedemo.com/inventory.html”
+WHEN user clicks on dropdown field in the top right corner
+THEN 4 options are displayed
+AND the first option is “Name A to Z”
+AND the second option is “Name Z to A”
+AND the third option is “Price low to high”
+AND the fourth option is “Price high to low”
+
+
+Test case 4: Dropdown (Name Z to A) (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+AND user clicks on dropdown field in the top right corner
+WHEN user clicks to sort the products items by “Name Z to A”
+THEN products are sorted by reversed alphabetical order
+
+
+Test case 5: Dropdown (Price low to high) (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+AND user clicks on dropdown field in the top right corner
+WHEN user clicks to sort the products items by “Price low to high”
+THEN products are sorted by cheapest to most expensive
+
+
+Test case 6: Dropdown (Price high to low) (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+AND user clicks on dropdown field in the top right corner
+WHEN user clicks to sort the products items by “Price high to low”
+THEN products are sorted by most expensive to cheapest
+
+
+Test case 7: Cart Button
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+WHEN user clicks on cart button (top right corner)
+THEN user is redirected to the cart page (https://www.saucedemo.com/cart.html)

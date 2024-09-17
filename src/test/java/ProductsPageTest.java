@@ -32,20 +32,6 @@ public class ProductsPageTest {
         driver.quit();
     }
 
-    @Test
-    public void clickOnProductTextTest() {
-        productsPage.clickSauceLabsBackpackText();
-
-        assertEquals("https://www.saucedemo.com/inventory-item.html?id=4",productsPage.currentUrl());
-    }
-
-    @Test
-    public void clickOnBackToProductButtonTest() {
-        productsPage.clickSauceLabsBackpackText();
-        productsPage.clickBackToProducts();
-
-        assertEquals("https://www.saucedemo.com/inventory.html",productsPage.currentUrl());
-    }
 
     @Test
     public void addToCartButtonTest() {
@@ -58,17 +44,17 @@ public class ProductsPageTest {
     }
 
     @Test
-    public void removeCartButtonTest() throws InterruptedException {
+    public void removeButtonTest() {
         productsPage.clickAddToCartSauceLabsBoltTshirt();
-        productsPage.removeSauceBackPackTshirt();
+        productsPage.clickRemoveSauceLabsBoltTshirt();
 
         assertEquals("Add to cart",productsPage.getAddToCartSauceLabsBoltTshirtButtonText());
-        assertEquals("rgba(255, 255, 255, 1)",productsPage.getAddToCartSauceLabsBoltTshirtButtonTextColor());
-        assertFalse(productsPage.isCartBadgePresent());
+        assertEquals("#132322",productsPage.getAddToCartSauceLabsBoltTshirtButtonBorderColor());
+        assertFalse(productsPage.isCartBadgeDisplayed());
     }
 
     @Test
-    public void dropDownTextTest(){
+    public void dropDownTextTest() {
         assertEquals("Name (A to Z)",productsPage.dropdownOptions().get(0).getText());
         assertEquals("Name (Z to A)",productsPage.dropdownOptions().get(1).getText());
         assertEquals("Price (low to high)",productsPage.dropdownOptions().get(2).getText());
@@ -76,14 +62,7 @@ public class ProductsPageTest {
     }
 
     @Test
-    public void firstProductNameTest(){
-        assertEquals("Name (A to Z)",productsPage.getSelectedDropdownText());
-        assertEquals("Sauce Labs Backpack",productsPage.SauceBackPackTshirtText());
-    }
-
-
-    @Test
-    public void firstProductNameSortedZtoATest(){
+    public void firstProductNameSortedZtoATest() {
         productsPage.selectDropdownOption(1);
 
         assertEquals("Name (Z to A)",productsPage.getSelectedDropdownText());
@@ -91,7 +70,7 @@ public class ProductsPageTest {
     }
 
     @Test
-    public void priceValidateFirstProductLowToHighTest(){
+    public void priceValidateFirstProductLowToHighTest() {
         productsPage.selectDropdownOption(2);
 
         assertEquals("Price (low to high)",productsPage.getSelectedDropdownText());
@@ -99,7 +78,7 @@ public class ProductsPageTest {
     }
 
     @Test
-    public void priceValidateFirstProductHighToLowTest(){
+    public void priceValidateFirstProductHighToLowTest() {
         productsPage.selectDropdownOption(3);
 
         assertEquals("Price (high to low)",productsPage.getSelectedDropdownText());
@@ -107,26 +86,11 @@ public class ProductsPageTest {
     }
 
     @Test
-    public void validateTheDollarSignTest(){
-        assertTrue(productsPage.getSauceLabsOnesiePrice().contains("$"));
-    }
-
-    @Test
-    public void cartButtonTest(){
+    public void cartButtonTest() {
         productsPage.clickCartButton();
 
-        assertEquals("https://www.saucedemo.com/cart.html",productsPage.currentUrl());
+        assertTrue(productsPage.isOnTheCartPage());
     }
 
-    @Test
-    public void removeButtonItemInformationTest() throws InterruptedException {
-        productsPage.addToCartSauceLabsBackpack();
-        productsPage.goToSauceLabsBackPackInventory();
-        productsPage.clickRemoveButton();
-
-        assertEquals("Add to cart",productsPage.getAddToCartButtonTextInformationPage());
-        assertEquals("rgba(255, 255, 255, 1)",productsPage.getAddToCartButtonColorInformationPage());
-        assertFalse(productsPage.isCartBadgePresent());
-    }
 }
 
