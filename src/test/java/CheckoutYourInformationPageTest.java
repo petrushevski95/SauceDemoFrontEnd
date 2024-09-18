@@ -11,9 +11,7 @@ import static org.junit.Assert.assertTrue;
 public class CheckoutYourInformationPageTest {
 
     private WebDriver driver;
-    private LoginPage loginPage;
     private YourCartPage yourCartPage;
-    private ProductsPage productsPage;
     private CheckoutYourInformationPage checkoutInformationPage;
 
     @Before
@@ -21,8 +19,8 @@ public class CheckoutYourInformationPageTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        loginPage = new LoginPage(driver);
-        productsPage = new ProductsPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        ProductsPage productsPage = new ProductsPage(driver);
         yourCartPage = new YourCartPage(driver);
         checkoutInformationPage = new CheckoutYourInformationPage(driver);
 
@@ -42,8 +40,6 @@ public class CheckoutYourInformationPageTest {
 
     @Test
     public void cancelButtonTest() {
-        productsPage.clickCartButton();
-        yourCartPage.clickCheckoutButton();
         checkoutInformationPage.clickCancelButton();
 
         assertTrue(yourCartPage.isRedirectedToTheCartPage());
@@ -53,7 +49,7 @@ public class CheckoutYourInformationPageTest {
     public void successfulCheckoutTest() {
         checkoutInformationPage.enterFirstName("Gorjan");
         checkoutInformationPage.enterLastName("Petrushevski");
-        checkoutInformationPage.enterZipPostalCode("280801995");
+        checkoutInformationPage.enterZipPostalCode("999");
         checkoutInformationPage.clickContinueButton();
 
         assertTrue(checkoutInformationPage.isRedirectedToTheCheckoutOverviewPage());

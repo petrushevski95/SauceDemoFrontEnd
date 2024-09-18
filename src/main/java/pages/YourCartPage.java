@@ -113,7 +113,7 @@ public class YourCartPage {
             return true;
         } else {
             return false;}
-        }
+    }
 
     public boolean isRedirectedToTheCartPage() {
         if(driver.getCurrentUrl().equals("https://www.saucedemo.com/cart.html")){

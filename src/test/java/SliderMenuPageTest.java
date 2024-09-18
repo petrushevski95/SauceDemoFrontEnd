@@ -78,7 +78,7 @@ public class SliderMenuPageTest {
         sliderMenuPage.clickResetAppState();
         assertFalse(sliderMenuPage.isCartItemCounterDisplayed());
 
-        // NE PROAGJAAT ZASHO E BUG TREBA DA GI VRATI OD REMOVE NA ADD TO CART, ONI OSTANUVAAT NA REMOVE
+        // BUG FOUND Reset api state button does not clear the cart inventory
 //        assertEquals("Add to cart",sliderMenuPage.getAddToCartSauceLabsBackpackText());
 //        assertEquals("Add to cart",sliderMenuPage.getAddToCartSauceLabsBikeLightText());
 //        assertEquals("Add to cart",sliderMenuPage.getAddToCartSauceLabsFleeceJacketText());

@@ -26,6 +26,7 @@ public class ProductsPage {
     private final By addToCartSauceLabsBackpack = By.id("add-to-cart-sauce-labs-backpack");
     private final By removeSauceLabsBoltTshirt = By.id("remove-sauce-labs-bolt-t-shirt");
     private final By sauceLabsBackpack = By.id("item_4_title_link");
+    private final By cartSignNumber = By.className("shopping_cart_badge");
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
@@ -86,10 +87,6 @@ public class ProductsPage {
         return !driver.findElements(cartBadge).isEmpty();
     }
 
-    public boolean isOnTheSauceLabsBackpackInformationPage() {
-        return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory-item.html?id=4");
-    }
-
 //    public String dropdownOptionText(int option) {
 //        WebElement dropdown = driver.findElement(dropdownField);
 //        List<WebElement> options = dropdown.findElements(dropdownOptions);
@@ -106,6 +103,10 @@ public class ProductsPage {
         Select select = new Select(driver.findElement
                 (By.xpath("//*[@id=\"header_container\"]/div[2]/div/span/select")));
         select.selectByIndex(option);
+    }
+
+    public String getCartSignCounterNumber() {
+       return driver.findElement(cartSignNumber).getText();
     }
 
     public String getTShirtRedText(){
@@ -137,12 +138,13 @@ public class ProductsPage {
         driver.findElement(cartButton).click();
     }
 
-    public void addToCartSauceLabsBackpack(){
+    public void clickAddToCartSauceLabsBackpack(){
         driver.findElement(addToCartSauceLabsBackpack).click();
     }
 
     public void goToSauceLabsBackPackInventory(){
         driver.get("https://www.saucedemo.com/inventory-item.html?id=4");
     }
+
 
 }

@@ -41,11 +41,12 @@ TEST CASES: --------------------------------------------------------------------
 Test case 1: “Add to cart” button (PASS)
 NOTE 1: User must be logged in
 GIVEN user is on the products page “https://www.saucedemo.com/inventory.html”
-WHEN user clicks on “Add to cart” button
+WHEN user clicks on Sauce Labs Bolt T-shirt “Add to cart” button
+AND user clicks on Sauce Labs Backpack "Add to cart" button
 AND “Add to cart”  text is changed to “Remove”
 AND the borderline of the button is changed to red colour
-AND a red sign with number shows up on the cart button in the top right corner
-THEN selected items are successfully added to cart inventory.
+THEN a red sign with number "2" shows up on the cart button in the top right corner
+
 
 
 Test case 2: “Remove” button (PASS)
@@ -94,7 +95,7 @@ WHEN user clicks to sort the products items by “Price high to low”
 THEN products are sorted by most expensive to cheapest
 
 
-Test case 7: Cart Button
+Test case 7: Cart Button (PASS)
 NOTE 1: User must be logged in
 GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
 WHEN user clicks on cart button (top right corner)

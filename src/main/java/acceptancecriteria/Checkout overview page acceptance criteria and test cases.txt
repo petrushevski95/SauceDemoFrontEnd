@@ -1,0 +1,97 @@
+ACCEPTANCE CRITERIA:
+
+
+Test scenario 1: “Cancel” button
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout overview page “https://www.saucedemo.com/checkout-step-two.html“
+AND there is a “Cancel” button in the bottom left corner
+WHEN user click the “Cancel” button
+THEN user is redirected to the products page “https://www.saucedemo.com/inventory.html”
+
+
+Test scenario 2: “Finish” button
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout overview page “https://www.saucedemo.com/checkout-step-two.html“
+AND there is a “Finish” button in the bottom right corner
+WHEN user click the “Finish” button
+THEN user is redirected to the products page “https://www.saucedemo.com/checkout-complete.html”
+
+
+Test scenario 3: Displayed payment information
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout overview page “https://www.saucedemo.com/checkout-step-two.html“
+AND payment information with credit card information is displayed
+AND shipping information with text for the shipping information is displayed
+WHEN price total information with total item and tax are displayed
+AND "Item total" is represented in dollar "$" currency
+AND "Tax" is represented in dollar "$" currency up to second decimal
+THEN a "Total" text represented in dollar "$" currency up to second decimal is displayed
+
+Test scenario 4: Displayed product information
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout overview page “https://www.saucedemo.com/checkout-step-two.html“
+WHEN product name is displayed
+AND product description is displayed
+AND product price with "$" sign is displayed
+THEN product quantity is displayed
+
+
+
+TEST CASES: ------------------------------------------------------------------------------------------------------------
+
+
+Test case 1: “Cancel” button (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout overview page “https://www.saucedemo.com/checkout-step-two.html“
+AND there is a “Cancel” button in the bottom left corner
+WHEN user click the “Cancel” button
+THEN user is redirected to the products page “https://www.saucedemo.com/inventory.html”
+
+
+Test case 2: “Finish” button (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout overview page “https://www.saucedemo.com/checkout-step-two.html“
+AND there is a “Finish” button in the bottom right corner
+WHEN user click the “Finish” button
+AND cart red sign counter is removed
+THEN user is redirected to the products page “https://www.saucedemo.com/checkout-complete.html”
+
+
+Test case 3: Displayed payment information (PASS) (bug found on the item total decimal number)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout overview page “https://www.saucedemo.com/checkout-step-two.html“
+AND payment information with text "SauceCard #31337" is displayed
+AND shipping information with text "Free Pony Express Delivery!" is displayed
+WHEN "Price Total" information with "Total item" and "Tax" are displayed
+AND "Item total: $59.980000000000004" text is displayed under the "Price Total"
+AND "Tax: $4.80" text is displayed under the "Item total"
+THEN a "Total: $64.78" text is displayed at the bottom of the information page
+
+
+Test case 4: Displayed product information (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout overview page “https://www.saucedemo.com/checkout-step-two.html“
+AND Sauce Labs Fleece Jacked is displayed
+AND Sauce Labs Fleece Jacket "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office." description is displayed
+AND Sauce Labs Fleece Jacket "$49.99" price is displayed
+AND Sauce Labs Fleece Jacket quantity "1" is displayed
+WHEN Sauce Labs Bike Light is displayed
+AND Sauce Labs Bike Light "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included." description is displayed
+AND Sauce Labs Bike light "$9.99" price is displayed
+THEN Sauce labs Bike Light quantity "1" is displayed
