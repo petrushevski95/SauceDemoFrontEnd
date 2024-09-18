@@ -1,0 +1,67 @@
+ACCEPTANCE CRITERIA:
+
+
+Test scenario 1: Slider menu
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+WHEN user clicks the slider menu button (top left corner)
+THEN slider menu is shown on the screen
+AND there is "X" button (close slider menu)
+AND there is "All items" button
+AND there is "About" button
+AND there is "Log out" button
+AND there is "Reset App state" button
+
+
+TEST CASES: ------------------------------------------------------------------------------------------------------------
+
+
+Test case 1: "X" button (close slider menu) (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+AND user clicks the slider menu button (top left corner)
+THEN slider menu is shown on the screen
+WHEN user click the "X" button
+THEN slider menu closes
+
+
+Test case 2: "All items" button (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the Sauce Labs Backpack information page "https://www.saucedemo.com/inventory-item.html?id=4"
+AND user clicks the slider menu button (top left corner)
+THEN slider menu is shown on the screen
+WHEN user click the "All items" button
+THEN user is redirected to the product page "https://www.saucedemo.com/inventory.html"
+
+
+Test case 3: "About" button (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+AND user clicks the slider menu button (top left corner)
+THEN slider menu is shown on the screen
+WHEN user click the "About" button
+THEN user is redirected to the sauce labs about page "https://saucelabs.com/"
+
+
+Test case 4: "Logout" button (PASS)
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+AND user clicks the slider menu button (top left corner)
+THEN slider menu is shown on the screen
+WHEN user click the "Logout" button
+THEN user is successfully logged out and redirected to the login page "https://www.saucedemo.com/"
+
+
+Test case 5: "Reset App State" button (BUG FOUND)
+
+NOTE 1: User must be logged in
+GIVEN user is on the products page "https://www.saucedemo.com/inventory.html"
+AND user add to cart Sauce Labs Bike light
+AND user add to cart Sauce Labs Backpack
+AND user add to cart Sauce Labs Fleece Jacket
+AND user add to cart Sauce Labs Onesie
+AND cart sign with number "4" is displayed on the cart button
+AND user clicks on the slider menu button (top left corner)
+AND slider menu is shown on the screen
+WHEN user clicks on "Reset App State" button
+THEN cart sign counter on the cart button is removed (Remove buttons do not reset)

@@ -125,7 +125,7 @@ public class ProductsPage {
         return driver.findElement(selectedDropdownText).getText();
     }
 
-//    public boolean dollarSignPresent(String text) {
+//    public boolean dollarSignPresent(String text) { //Exercise
 //            for (int i = 0; i < text.length(); i++) {
 //                if (text.charAt(i) == '$') {
 //                return true;
