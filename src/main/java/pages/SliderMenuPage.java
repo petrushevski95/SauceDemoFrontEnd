@@ -2,12 +2,13 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class SliderMenuPage {
 
@@ -29,6 +30,7 @@ public class SliderMenuPage {
     private final By removeSauceLabsBikeLight = By.id("remove-sauce-labs-bike-light");
     private final By removeSauceLabsFleeceJacket = By.id("remove-sauce-labs-fleece-jacket");
     private final By removeSauceLabsOnesie = By.id("remove-sauce-labs-onesie");
+    private final By closeMenuButton = By.id("react-burger-cross-btn");
 
     public SliderMenuPage(WebDriver driver) {
         this.driver = driver;
@@ -79,8 +81,24 @@ public class SliderMenuPage {
     }
 
     public boolean isMenuDisplayed() {
-        return driver.findElement(menu).isDisplayed();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        try {
+            return wait.until(visibilityOfElementLocated(menu)).isDisplayed();
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
+
+    public boolean isMenuClosed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        try {
+            return wait.until(invisibilityOfElementLocated(menu));
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+
 
     public void addToCartSauceLabsBackpack() {
         driver.findElement(addToCartSauceLabsBackpack).click();
@@ -110,20 +128,25 @@ public class SliderMenuPage {
         }
     }
 
-    public String getRemoveSauceLabsBikeLightText(){
+    public String getRemoveSauceLabsBikeLightText() {
         return driver.findElement(removeSauceLabsBikeLight).getText();
     }
 
-    public String getRemoveSauceLabsBackpackText(){
+    public String getRemoveSauceLabsBackpackText() {
         return driver.findElement(removeSauceLabsBackpack).getText();
     }
 
-    public String getRemoveSauceLabsFleeceJacketText(){
+    public String getRemoveSauceLabsFleeceJacketText() {
         return driver.findElement(removeSauceLabsFleeceJacket).getText();
     }
 
-    public String getRemoveSauceLabsOnesieText(){
+    public String getRemoveSauceLabsOnesieText() {
         return driver.findElement(removeSauceLabsOnesie).getText();
+    }
+
+    public void clickCloseMenu() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(elementToBeClickable(closeMenuButton)).click();
     }
 
 }

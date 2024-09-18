@@ -33,6 +33,14 @@ public class SliderMenuPageTest {
     }
 
     @Test
+    public void closeSliderMenuTest() {
+        sliderMenuPage.clickMenuButton();
+        assertTrue(sliderMenuPage.isMenuDisplayed());
+        sliderMenuPage.clickCloseMenu();
+        assertTrue(sliderMenuPage.isMenuClosed());
+    }
+
+    @Test
     public void allItemsButtonTest() {
         sliderMenuPage.clickSauceLabsBackpack();
         assertTrue(sliderMenuPage.isOnTheSauceLabsBackpackPage());
@@ -78,7 +86,7 @@ public class SliderMenuPageTest {
         sliderMenuPage.clickResetAppState();
         assertFalse(sliderMenuPage.isCartItemCounterDisplayed());
 
-        // BUG FOUND Reset api state button does not clear the cart inventory
+        // Remove button does not reset!!
 //        assertEquals("Add to cart",sliderMenuPage.getAddToCartSauceLabsBackpackText());
 //        assertEquals("Add to cart",sliderMenuPage.getAddToCartSauceLabsBikeLightText());
 //        assertEquals("Add to cart",sliderMenuPage.getAddToCartSauceLabsFleeceJacketText());
