@@ -1,0 +1,104 @@
+ACCEPTANCE CRITERIA:
+
+
+Test scenario 1: “Cancel” button
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the “https://www.saucedemo.com/checkout-step-one.html” page
+WHEN user click on the “Cancel” button (bottom left corner)
+THEN user is redirected back to the cart page “https://www.saucedemo.com/cart.html”
+
+
+Test scenario 2: Successfull checkout form
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the checkout information page “https://www.saucedemo.com/checkout-step-one.html”
+AND user enters first name into the “First Name” field
+AND user enters last name into the “Last Name” field
+AND user enters zip code into the  “Zip/Postal Code” field
+WHEN user clicks the “Continue” button
+THEN user is redirected to checkout overview page “https://www.saucedemo.com/checkout-step-two.html”
+
+
+Test scenario 3: Unsuccessful checkout form (empty fields)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the checkout information page “https://www.saucedemo.com/checkout-step-one.html”
+AND user leaves empty checkout form
+WHEN user clicks the “Continue” button
+THEN error message is displayed “Error: First Name is required“
+
+
+Test scenario 4: Unsuccessful checkout form (empty “Last Name” field)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the checkout information page “https://www.saucedemo.com/checkout-step-one.html”
+AND user enters first name into the “First Name” field
+AND user leaves empty “Last Name” field
+AND user enters zip code into the  “Zip/Postal Code” field
+WHEN user clicks the “Continue” button
+THEN error message is displayed “Error: Last Name is required“
+
+
+Test scenario 5: Unsuccessful checkout form (empty “Zip/Postal Code” field)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the checkout information page “https://www.saucedemo.com/checkout-step-one.html”
+AND user enters first name into the “First Name” field
+AND user enters last name into the “Last Name” field
+AND user leaves empty the “Zip/Postal Code” field
+WHEN user clicks the “Continue” button
+THEN error message is displayed “Error: Postal Code is required“
+
+
+TEST CASES: ------------------------------------------------------------------------------------------------------------
+
+
+Test case 1: “Cancel” button (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the “https://www.saucedemo.com/checkout-step-one.html” page
+WHEN user click on the “Cancel” button (bottom right corner)
+THEN user is redirected back to the cart page “https://www.saucedemo.com/cart.html”
+
+
+Test case 2: Successfull checkout form (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the checkout information page “https://www.saucedemo.com/checkout-step-one.html”
+AND user enters “Gorjan” into the “First Name” field
+AND user enters “Petrushevski” into the “Last Name” field
+AND user enters “999” into the  “Zip/Postal Code” field
+WHEN user clicks the “Continue” button
+THEN user is redirected to checkout overview page “https://www.saucedemo.com/checkout-step-two.html”
+
+
+Test case 3: Unsuccessful checkout form (empty fields) (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the checkout information page “https://www.saucedemo.com/checkout-step-one.html”
+AND user leaves empty checkout form
+WHEN user clicks the “Continue” button
+THEN error message is displayed “Error: First Name is required“
+
+
+Test case 4: Unsuccessful checkout form (empty “Last Name” field) (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the checkout information page “https://www.saucedemo.com/checkout-step-one.html”
+AND user enters “Gorjan” into the “First Name” field
+AND user leaves empty “Last Name” field
+AND user enters “999” into the  “Zip/Postal Code” field
+WHEN user clicks the “Continue” button
+THEN error message is displayed “Error: Last Name is required“
+
+
+Test case 5: Unsuccessful checkout form (empty “Zip/Postal Code” field) (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+GIVEN user is on the checkout information page “https://www.saucedemo.com/checkout-step-one.html”
+AND user enters “Gorjan” into the “First Name” field
+AND user enters "Petrushevski" into the "Last Name" field
+AND user leaves empty the  “Zip/Postal Code” field
+WHEN user clicks the “Continue” button
+THEN error message is displayed “Error: Postal Code is required“

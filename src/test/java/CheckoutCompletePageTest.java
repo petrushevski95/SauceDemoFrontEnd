@@ -42,33 +42,24 @@ public class CheckoutCompletePageTest {
     }
 
     @Test
-    public void textDisplayed() {
+    public void textDisplayedTest() {
         String orderCompleteMessage = "Your order has been dispatched, " +
                 "and will arrive just as fast as the pony can get there!";
 
+        assertTrue(checkoutCompletePage.isSignPictureDisplayed());
         assertTrue(checkoutCompletePage.isThankYouMessageDisplayed());
         assertEquals("Thank you for your order!",checkoutCompletePage.getThankYouMessage());
         assertTrue(checkoutCompletePage.isOrderCompleteTextDisplayed());
         assertEquals(orderCompleteMessage,checkoutCompletePage.getOrderCompleteText());
+
     }
 
-
     @Test
-    public void backHomeButtonTextFontColorTest() {
+    public void backHomeButtonTextFontColorTest() { //Exercise
         assertEquals("#3ddc91",checkoutCompletePage.getBackHomeButtonBackgroundColor());
         assertEquals("#132322",checkoutCompletePage.getBackHomeButtonTextColor());
         assertEquals("16px",checkoutCompletePage.getBackHomeButtonFontSize());
         assertEquals("\"DM Sans\", sans-serif",checkoutCompletePage.getBackHomeButtonFontType());
-    }
-
-    @Test
-    public void pictureDisplayedTest() {
-        assertTrue(checkoutCompletePage.isSignPictureDisplayed());
-    }
-
-    @Test
-    public void checkoutCompletePageLogoDisplayedTest() {
-        assertTrue(checkoutCompletePage.isCheckoutCompletePageLogoDisplayed());
     }
 
 }

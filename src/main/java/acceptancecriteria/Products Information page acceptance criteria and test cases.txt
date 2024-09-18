@@ -55,7 +55,7 @@ WHEN user click on the “Back to products” button
 THEN user is redirected to the products page “https://www.saucedemo.com/inventory.html”
 
 
-Test case 3: "Remove" button
+Test case 3: "Remove" button (PASS)
 NOTE 1: User must be logged in
 NOTE 2: Product needs to be added into the cart page
 GIVEN user is on the product page “https://www.saucedemo.com/inventory.html”

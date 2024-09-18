@@ -1,0 +1,47 @@
+ACCEPTANCE CRITERIA:
+
+
+Test scenario 1: Displayed checkout complete information
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout complete page "https://www.saucedemo.com/checkout-complete.html"
+AND picture with ✅ sign is displayed
+AND "Thank you for your order!" message is displayed
+AND "Your order has been dispatched, and will arrive just as fast as the pony can get there!" order message is displayed
+AND button "Back Home" is displayed
+WHEN user clicks on "Back Home" button
+THEN user is redirected to the products page "https://www.saucedemo.com/inventory.html"
+
+
+TEST CASES: ------------------------------------------------------------------------------------------------------------
+
+Test case 1: "Back Home" button (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout complete page "https://www.saucedemo.com/checkout-complete.html"
+WHEN user clicks on "Back Home" button
+THEN user is redirected to the products page "https://www.saucedemo.com/inventory.html"
+
+Test case 2: Checkout complete information displayed (PASS)
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout complete page "https://www.saucedemo.com/checkout-complete.html"
+WHEN picture with ✅ sign is displayed
+AND "Thank you for your order!" message is displayed
+THEN "Your order has been dispatched, and will arrive just as fast as the pony can get there!" order message is displayed
+
+
+Test case 3: "Back Home" button color and text (PASS) //Exercise
+NOTE 1: User must be logged in
+NOTE 2: Product needs to be added into the cart page
+NOTE 3: Checkout form to be filled
+GIVEN user is on the checkout complete page "https://www.saucedemo.com/checkout-complete.html"
+WHEN user sees the "Back Home" button
+THEN button background color needs to be "#3ddc91" green
+AND button text color needs to be "#132322" grey/black
+AND button font size needs to be "16px"
+AND button font family needs to be "DM Sans"
+

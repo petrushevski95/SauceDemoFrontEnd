@@ -36,11 +36,13 @@ public class ProductsPageTest {
     @Test
     public void addToCartButtonTest() {
         productsPage.clickAddToCartSauceLabsBoltTshirt();
+        productsPage.clickAddToCartSauceLabsBackpack();
 
         assertEquals("Remove",productsPage.getRemoveButtonText());
         assertEquals("#e2231a",productsPage.getRemoveButtonBorderColor());
         assertEquals("#e2231a",productsPage.getRemoveButtonTextColor());
         assertTrue(productsPage.cartSignDisplayed());
+        assertEquals("2",productsPage.getCartSignCounterNumber());
     }
 
     @Test

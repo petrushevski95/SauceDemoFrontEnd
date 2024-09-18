@@ -62,7 +62,7 @@ public class ProductsInformationPageTest {
 
     @Test
     public void removeButtonItemInformationTest() {
-        productsPage.addToCartSauceLabsBackpack();
+        productsPage.clickAddToCartSauceLabsBackpack();
         productsPage.goToSauceLabsBackPackInventory();
         productsInformationPages.clickRemoveButton();
 

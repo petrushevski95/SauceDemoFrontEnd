@@ -65,7 +65,7 @@ WHEN the user click the login button
 THEN error message is displayed "Epic sadface: Username and password do not match any user in this service"
 
 
-Test case 4: Unsuccessful login (valid username but empty password)
+Test case 4: Unsuccessful login (valid username but empty password) (PASS)
 GIVEN the user is on the login page "https://www.saucedemo.com "
 AND the user enters “standard_user” into the username field
 AND the user leaves password field empty
@@ -73,7 +73,7 @@ WHEN the user clicks the login button
 THEN error message is displayed “Epic sadface: Password is required"
 
 
-Test case 5: Empty fields
+Test case 5: Empty fields (PASS)
 GIVEN the user is on the login page "https://www.saucedemo.com "
 AND the user leaves username field empty (types nothing)
 AND the user leaves password field empty (types nothing)

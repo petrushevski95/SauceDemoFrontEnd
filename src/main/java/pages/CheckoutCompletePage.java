@@ -63,8 +63,4 @@ public class CheckoutCompletePage {
         return driver.findElement(signPicture).isDisplayed();
     }
 
-    public boolean isCheckoutCompletePageLogoDisplayed() {
-        return driver.findElement(checkoutCompleteLogo).isDisplayed();
-    }
-
 }
