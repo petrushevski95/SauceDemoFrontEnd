@@ -53,7 +53,6 @@ public class CheckoutYourInformationPageTest {
         checkoutInformationPage.clickContinueButton();
 
         assertTrue(checkoutInformationPage.isRedirectedToTheCheckoutOverviewPage());
-
     }
 
     @Test
