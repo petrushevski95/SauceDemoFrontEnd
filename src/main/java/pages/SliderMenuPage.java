@@ -1,18 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.*;
-
-public class SliderMenuPage {
-
-    private final WebDriver driver;
+public class SliderMenuPage extends BasePage {
 
     private final By menuButton = By.id("react-burger-menu-btn");
     private final By menu = By.xpath("//*[@id=\"menu_button_container\"]/div/div[2]");
@@ -33,120 +25,109 @@ public class SliderMenuPage {
     private final By closeMenuButton = By.id("react-burger-cross-btn");
 
     public SliderMenuPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void clickMenuButton() {
-        driver.findElement(menuButton).click();
+        clickOnElement(menuButton);
     }
 
     public void clickSauceLabsBackpack() {
-        driver.findElement(sauceLabsBackpack).click();
+        clickOnElement(sauceLabsBackpack);
     }
 
     public void clickAllItems() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(elementToBeClickable(allItems)).click();
+        waitForElementToBeClickable(allItems, 5);
+        clickOnElement(allItems);
     }
 
     public void clickLogout() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(elementToBeClickable(logout)).click();
+        waitForElementToBeClickable(logout, 5);
+        clickOnElement(logout);
     }
 
     public boolean isOnTheSauceLabsBackpackPage() {
-        return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory-item.html?id=4");
+        return isOnThePage("https://www.saucedemo.com/inventory-item.html?id=4");
     }
 
     public boolean isOnTheProductsPage() {
-        return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html");
+        return isOnThePage("https://www.saucedemo.com/inventory.html");
     }
 
     public boolean isOnAboutPage() {
-        return driver.getCurrentUrl().equals("https://saucelabs.com/");
+        return isOnThePage("https://saucelabs.com/");
     }
 
     public boolean isOnLoginPage() {
-        return driver.getCurrentUrl().equals("https://www.saucedemo.com/");
+        return isOnThePage("https://www.saucedemo.com/");
     }
 
     public void clickAbout() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(elementToBeClickable(about)).click();
+        waitForElementToBeClickable(about, 5);
+        clickOnElement(about);
     }
 
     public void clickResetAppState() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(elementToBeClickable(resetAppState)).click();
+        waitForElementToBeClickable(resetAppState, 5);
+        clickOnElement(resetAppState);
     }
 
     public boolean isMenuDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        try {
-            return wait.until(visibilityOfElementLocated(menu)).isDisplayed();
-        } catch (TimeoutException e) {
-            return false;
-        }
+        return isDisplayed(menu);
     }
 
     public boolean isMenuClosed() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        try {
-            return wait.until(invisibilityOfElementLocated(menu));
+        try {waitForElementToBeInvisible(menu, 5);
+            return true;
         } catch (TimeoutException e) {
             return false;
         }
     }
 
 
-
     public void addToCartSauceLabsBackpack() {
-        driver.findElement(addToCartSauceLabsBackpack).click();
+        clickOnElement(addToCartSauceLabsBackpack);
     }
 
     public void addToCartSauceLabsBikeLight() {
-        driver.findElement(addToCartSauceLabsBikeLight).click();
+        clickOnElement(addToCartSauceLabsBikeLight);
     }
 
     public void addToCartSauceLabsOnesie() {
-        driver.findElement(addToCartSauceLabsOnesie).click();
+        clickOnElement(addToCartSauceLabsOnesie);
     }
 
     public void addToCartSauceLabsFleeceJacket() {
-        driver.findElement(addToCartSauceLabsFleeceJacket).click();
+        clickOnElement(addToCartSauceLabsFleeceJacket);
     }
 
     public String getCartItemCounter() {
-        return driver.findElement(cartSignCounter).getText();
+        return getText(cartSignCounter);
     }
 
     public boolean isCartItemCounterDisplayed() {
-        {try {return driver.findElement(cartSignCounter).isDisplayed();
-            } catch (NoSuchElementException e) {
-                return false;
-            }
-        }
+        return isDisplayed(cartSignCounter);
     }
 
     public String getRemoveSauceLabsBikeLightText() {
-        return driver.findElement(removeSauceLabsBikeLight).getText();
+        return getText(removeSauceLabsBikeLight);
     }
 
     public String getRemoveSauceLabsBackpackText() {
-        return driver.findElement(removeSauceLabsBackpack).getText();
+        return getText(removeSauceLabsBackpack);
     }
 
     public String getRemoveSauceLabsFleeceJacketText() {
-        return driver.findElement(removeSauceLabsFleeceJacket).getText();
+        return getText(removeSauceLabsFleeceJacket);
     }
 
     public String getRemoveSauceLabsOnesieText() {
-        return driver.findElement(removeSauceLabsOnesie).getText();
+        return getText(removeSauceLabsOnesie);
     }
 
     public void clickCloseMenu() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(elementToBeClickable(closeMenuButton)).click();
+        waitForElementToBeClickable(closeMenuButton,5);
+        clickOnElement(closeMenuButton);
     }
 
 }

@@ -61,7 +61,7 @@ public class CheckoutOverviewPageTest {
     }
 
     @Test
-    public void paymentInformationValidationTest() {
+    public void paymentInformationValidationTest() throws InterruptedException {
         assertTrue(checkoutOverviewPage.isPaymentInformationDisplayed());
         assertEquals("Payment Information:",checkoutOverviewPage.getPaymentInformation());
         assertTrue(checkoutOverviewPage.isPaymentCardDisplayed());
@@ -70,12 +70,11 @@ public class CheckoutOverviewPageTest {
         assertEquals("Shipping Information:",checkoutOverviewPage.getShippingInformation());
         assertTrue(checkoutOverviewPage.isDeliveryNameDisplayed());
         assertEquals("Free Pony Express Delivery!",checkoutOverviewPage.getNameDelivery());
-        assertTrue(checkoutOverviewPage.isSPriceTotalDisplayed());
+        assertTrue(checkoutOverviewPage.isPriceTotalDisplayed());
         assertEquals("Price Total",checkoutOverviewPage.getPriceTotal());
         assertTrue(checkoutOverviewPage.isTaxDisplayed());
         assertEquals("Tax: $4.80",checkoutOverviewPage.getTax());
         assertTrue(checkoutOverviewPage.isTotalDisplayed());
-
         assertEquals(checkoutOverviewPage.getTotal(),checkoutOverviewPage.overallPrice(),0.0);
         assertTrue(checkoutOverviewPage.isDollarSignDisplayedOnTotalPrice());
     }

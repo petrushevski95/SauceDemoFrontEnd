@@ -2,80 +2,67 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.Color;
 
-public class ProductsInformationPages {
-
-    private final WebDriver driver;
-
+public class ProductsInformationPages extends BasePage {
 
     private final By backToProducts = By.id("back-to-products");
     private final By removeButton = By.id("remove");
-    private final By sauceLabsFleeceJacketPicture = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[1]/img");
-    private final By sauceLabsFleeceJacketTitle = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[1]");
-    private final By sauceLabsFleeceJacketDescription = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[2]");
-    private final By sauceLabsFleeceJacketPrice = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[3]");
     private final By addToCartButton = By.id("add-to-cart");
-    private final By sauceLabsBackpack = By.id("item_4_title_link");
     private final By sauceLabsBackpackPicture = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[1]/img");
     private final By sauceLabsBackpackTitle = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[1]");
     private final By sauceLabsBackpackDescription = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[2]");
     private final By sauceLabsBackPackPrice = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[3]");
-    private final By sauceLabsFleeceJacket = By.id("item_5_title_link");
 
-
-   public ProductsInformationPages(WebDriver driver) {
-        this.driver = driver;
-   }
-
-
-   public void clickBackToProducts() {
-        driver.findElement(backToProducts).click();
-   }
-
-   public void clickRemoveButton() {
-        driver.findElement(removeButton).click();
-   }
-
-   public boolean isBackToProductsPage() {
-        return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html");
-   }
-
-    public boolean isSauceLabsBackpackPictureDisplayed(){
-        return driver.findElement(sauceLabsBackpackPicture).isDisplayed();
+    public ProductsInformationPages(WebDriver driver) {
+       super(driver);
     }
 
-    public boolean isSauceLabsBackpackTitleDisplayed(){
-        return driver.findElement(sauceLabsBackpackTitle).isDisplayed();
+    public void clickBackToProducts() {
+        clickOnElement(backToProducts);
     }
 
-    public boolean isSauceLabsBackpackDescriptionDisplayed(){
-        return driver.findElement(sauceLabsBackpackDescription).isDisplayed();
+    public void clickRemoveButton() {
+        clickOnElement(removeButton);
     }
 
-    public boolean isSauceLabsBackpackPriceDisplayed(){
-        return driver.findElement(sauceLabsBackPackPrice).isDisplayed();
+    public boolean isBackToProductsPage() {
+        return getCurrentUrl().equals("https://www.saucedemo.com/inventory.html");
     }
 
-    public String getSauceLabsBackpackTitleText(){
-        return driver.findElement(sauceLabsBackpackTitle).getText();
+    public boolean isSauceLabsBackpackPictureDisplayed() {
+        return isDisplayed(sauceLabsBackpackPicture);
     }
 
-    public String getSauceLabsBackpackDescription(){
-        return driver.findElement(sauceLabsBackpackDescription).getText();
+    public boolean isSauceLabsBackpackTitleDisplayed() {
+        return isDisplayed(sauceLabsBackpackTitle);
     }
 
-    public String getSauceLabsBackPackPrice(){
-        return driver.findElement(sauceLabsBackPackPrice).getText();
+    public boolean isSauceLabsBackpackDescriptionDisplayed() {
+        return isDisplayed(sauceLabsBackpackDescription);
     }
 
-   public String getAddToCartButtonTextInformationPage() {
-        return driver.findElement(addToCartButton).getText();
-   }
+    public boolean isSauceLabsBackpackPriceDisplayed() {
+        return isDisplayed(sauceLabsBackPackPrice);
+    }
 
-   public String getAddToCartBorderColor() {
-        Color borderColor = Color.fromString(driver.findElement(addToCartButton).getCssValue("color"));
-        return borderColor.asHex();
+    public String getSauceLabsBackpackTitleText() {
+        return getText(sauceLabsBackpackTitle);
+    }
+
+    public String getSauceLabsBackpackDescription() {
+        return getText(sauceLabsBackpackDescription);
+    }
+
+    public String getSauceLabsBackPackPrice() {
+        return getText(sauceLabsBackPackPrice);
+    }
+
+    public String getAddToCartButtonTextInformationPage() {
+        return getText(addToCartButton);
+    }
+
+    public String getAddToCartBorderColor() {
+       return getColor(addToCartButton,"color");
    }
 
 }
