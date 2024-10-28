@@ -1,12 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
-public class CheckoutOverviewPage {
-
-    private final WebDriver driver;
+public class CheckoutOverviewPage extends BasePage {
 
     private final By paymentInformation = By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[2]/div[1]");
     private final By card = By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[2]/div[2]");
@@ -20,7 +17,7 @@ public class CheckoutOverviewPage {
     private final By getSauceLabsFleeceJacketDescription = By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[2]/div[1]");
     private final By getSauceLabsFleeceJacketPrice = By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[2]/div[2]/div");
     private final By getSauceLabsFleeceJacketQuantity = By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[1]");
-    private final By sauceLabsFleeceJacketPrice = By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[4]/div[2]/div[2]/div");
+    private final By sauceLabsFleeceJacketPrice = By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[2]/div[2]/div");
     private final By sauceLabsBikeLightTitle = By.id("item_0_title_link");
     private final By sauceLabsBikeLightDescription = By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[4]/div[2]/div[1]");
     private final By sauceLabsBikeLightPrice = By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[4]/div[2]/div[2]/div");
@@ -30,163 +27,158 @@ public class CheckoutOverviewPage {
     private final By cartSign = By.className("shopping_cart_badge");
 
     public CheckoutOverviewPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public String getPaymentInformation() {
-        return driver.findElement(paymentInformation).getText();
+        return getText(paymentInformation);
     }
 
     public boolean isPaymentInformationDisplayed() {
-        return driver.findElement(paymentInformation).isDisplayed();
+        return isDisplayed(paymentInformation);
     }
 
     public String getPaymentCard() {
-        return driver.findElement(card).getText();
+        return getText(card);
     }
 
     public boolean isPaymentCardDisplayed() {
-        return driver.findElement(card).isDisplayed();
+        return isDisplayed(card);
     }
 
     public String getShippingInformation() {
-        return driver.findElement(shippingInformation).getText();
+        return getText(shippingInformation);
     }
 
     public boolean isShippingInformationDisplayed() {
-        return driver.findElement(shippingInformation).isDisplayed();
+        return isDisplayed(shippingInformation);
     }
 
     public String getNameDelivery() {
-        return driver.findElement(nameDelivery).getText();
+        return getText(nameDelivery);
     }
 
     public boolean isDeliveryNameDisplayed() {
-        return driver.findElement(nameDelivery).isDisplayed();
+        return isDisplayed(nameDelivery);
     }
 
     public String getPriceTotal() {
-        return driver.findElement(priceTotal).getText();
+        return getText(priceTotal);
     }
 
-    public boolean isSPriceTotalDisplayed() {
-        return driver.findElement(priceTotal).isDisplayed();
+    public boolean isPriceTotalDisplayed() {
+        return isDisplayed(priceTotal);
     }
 
     public String getTax() {
-       return driver.findElement(tax).getText();
+       return getText(tax);
     }
 
 
     public boolean isTaxDisplayed() {
-        return driver.findElement(tax).isDisplayed();
+        return isDisplayed(tax);
     }
 
     public double getTotal() {
-        String price = driver.findElement(total).getText().substring(8);
-        return Double.parseDouble(price);
+        return getNumberFromStringToDouble(total,8);
     }
 
     public boolean isTotalDisplayed() {
-        return driver.findElement(total).isDisplayed();
+        return isDisplayed(total);
     }
 
     public boolean isDollarSignDisplayedOnTotalPrice() {
-        return driver.findElement(total).getText().contains("$");
+        return isPresent(total,"$");
     }
 
     public double overallPrice() {
-        String price1 = driver.findElement(taxPrice).getText().substring(6);
-        String price2 = driver.findElement(sauceLabsFleeceJacketPrice).getText().substring(1);
-        String price3 = driver.findElement(sauceLabsBikeLightPrice).getText().substring(1);
+        return calculatePriceFromStringToDouble(taxPrice,6) + calculatePriceFromStringToDouble(sauceLabsFleeceJacketPrice,1) +
+                calculatePriceFromStringToDouble(sauceLabsBikeLightPrice,1);
 
-        return Double.parseDouble(price1) + Double.parseDouble(price2) + Double.parseDouble(price3);
     }
 
     public String getSauceLabsBikeLightTitle() {
-        return driver.findElement(sauceLabsBikeLightTitle).getText();
+        return getText(sauceLabsBikeLightTitle);
     }
 
     public String getSauceLabsBikeLightDescription() {
-        return driver.findElement(sauceLabsBikeLightDescription).getText();
+        return getText(sauceLabsBikeLightDescription);
     }
 
     public String getSauceLabsBikeLightPrice() {
-        return driver.findElement(sauceLabsBikeLightPrice).getText();
+        return getText(sauceLabsBikeLightPrice);
     }
 
     public String getSauceLabsBikeLightQuantity() {
-        return driver.findElement(sauceLabsBikeLightQuantity).getText();
+        return getText(sauceLabsBikeLightQuantity);
     }
 
     public boolean isSauceLabsBikeLightTitleDisplayed() {
-        return driver.findElement(sauceLabsBikeLightTitle).isDisplayed();
+        return isDisplayed(sauceLabsBikeLightTitle);
     }
 
     public boolean isSauceLabsBikeLightDescriptionDisplayed() {
-        return driver.findElement(sauceLabsBikeLightDescription).isDisplayed();
+        return isDisplayed(sauceLabsBikeLightDescription);
     }
 
     public boolean isSauceLabsBikeLightPriceDisplayed() {
-        return driver.findElement(sauceLabsBikeLightPrice).isDisplayed();
+        return isDisplayed(sauceLabsBikeLightPrice);
     }
 
     public boolean isSauceLabsBikeLightQuantityDisplayed() {
-        return driver.findElement(sauceLabsBikeLightQuantity).isDisplayed();
+        return isDisplayed(sauceLabsBikeLightQuantity);
     }
 
     public String getSauceLabsFleeceJacketTitle() {
-        return driver.findElement(getSauceLabsFleeceJacketTitle).getText();
+        return getText(getSauceLabsFleeceJacketTitle);
     }
 
     public String getSauceLabsFleeceJacketDescription() {
-        return driver.findElement(getSauceLabsFleeceJacketDescription).getText();
+        return getText(getSauceLabsFleeceJacketDescription);
     }
 
     public String getSauceLabsFleeceJacketPrice() {
-        return driver.findElement(getSauceLabsFleeceJacketPrice).getText();
+        return getText(getSauceLabsFleeceJacketPrice);
     }
 
     public String getSauceLabsFleeceJacketQuantity() {
-        return driver.findElement(getSauceLabsFleeceJacketQuantity).getText();
+        return getText(getSauceLabsFleeceJacketQuantity);
     }
 
     public boolean isSauceLabsFleeceJacketTitleDisplayed() {
-        return driver.findElement(getSauceLabsFleeceJacketTitle).isDisplayed();
+        return isDisplayed(getSauceLabsFleeceJacketTitle);
     }
 
     public boolean isSauceLabsFleeceJacketDescriptionDisplayed() {
-        return driver.findElement(getSauceLabsFleeceJacketDescription).isDisplayed();
+        return isDisplayed(getSauceLabsFleeceJacketDescription);
     }
 
     public boolean isSauceLabsFleeceJacketPriceDisplayed() {
-        return driver.findElement(getSauceLabsFleeceJacketPrice).isDisplayed();
+        return isDisplayed(getSauceLabsFleeceJacketPrice);
     }
 
     public boolean isSauceLabsFleeceJacketQuantityDisplayed() {
-        return driver.findElement(getSauceLabsFleeceJacketQuantity).isDisplayed();
+        return isDisplayed(getSauceLabsFleeceJacketQuantity);
     }
 
     public void clickCancelButton() {
-        driver.findElement(cancelButton).click();
+        clickOnElement(cancelButton);
     }
 
     public boolean isOnTheProductsPage() {
-        return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html");
+        return isOnThePage("https://www.saucedemo.com/inventory.html");
     }
 
     public void clickFinishButton() {
-        driver.findElement(finishButton).click();
+       clickOnElement(finishButton);
     }
 
     public boolean isOnTheCheckoutCompletePage() {
-        return driver.getCurrentUrl().equals("https://www.saucedemo.com/checkout-complete.html");
+        return isOnThePage("https://www.saucedemo.com/checkout-complete.html");
     }
 
     public boolean isRedCartSignDisplayed() {
-        { try {return driver.findElement(cartSign).isDisplayed();
-        } catch(NoSuchElementException e) {
-            return false;}
-        }
+        return isDisplayed(cartSign);
     }
+
 }

@@ -1,13 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class YourCartPage {
-
-    private final WebDriver driver;
+public class YourCartPage extends BasePage {
 
     private final By cartButton = By.id("shopping_cart_container");
     private final By cartSign = By.xpath("//*[@id=\"shopping_cart_container\"]/a/span");
@@ -16,113 +12,79 @@ public class YourCartPage {
     private final By sauceLabsBackpackTitle = By.id("item_4_title_link");
     private final By sauceLabsBackpackQuantity = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[1]");
     private final By sauceLabsBackpackDescription = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[1]");
-    private final By sauceLabsBikeLightInTheCartTitle = By.id("item_0_title_link");
-    private final By sauceLabsBikeLightInTheCartDescription = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[1]");
-    private final By sauceLabsBikeLightInTheCartPrice = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[2]/div");
     private final By sauceLabsBackpackPrice = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[2]/div");
     private final By removeSauceLabsBackpackButton = By.id("remove-sauce-labs-backpack");
     private final By checkoutButton = By.id("checkout");
     private final By continueShopping = By.id("continue-shopping");
 
     public YourCartPage (WebDriver driver) {
-       this.driver = driver;
+        super(driver);
     }
 
     public void addToCartSauceLabsBackpack() {
-        driver.findElement(sauceLabsBackpack).click();
+        clickOnElement(sauceLabsBackpack);
     }
 
     public void clickCartIcon() {
-        driver.findElement(cartButton).click();
+        clickOnElement(cartButton);
     }
 
     public boolean isCartSignDisplayed() {
-        { try {return driver.findElement(cartSign).isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-            }
-        }
+        return isDisplayed(cartSign);
     }
 
     public String getCartSignCounter() {
-        return driver.findElement(cartSign).getText();
+        return getText(cartSign);
     }
 
     public boolean isCartListDisplayed() {
-        return driver.findElement(cartList).isDisplayed();
-    }
-
-    public String getSauceLabsBikeLightTitle() {
-        return driver.findElement(sauceLabsBikeLightInTheCartTitle).getText();
-    }
-
-    public String getSauceLabsBikeLightDescription() {
-        return driver.findElement(sauceLabsBikeLightInTheCartDescription).getText();
-    }
-
-    public String getSauceLabsBikeLightPrice() {
-        return driver.findElement(sauceLabsBikeLightInTheCartPrice).getText();
+        return isDisplayed(cartList);
     }
 
     public String getSauceLabsBackpackTitle() {
-        return driver.findElement(sauceLabsBackpackTitle).getText();
+        return getText(sauceLabsBackpackTitle);
     }
 
     public String getSauceLabsBackpackQuantity() {
-        return driver.findElement(sauceLabsBackpackQuantity).getText();
+        return getText(sauceLabsBackpackQuantity);
     }
 
     public String getSauceLabsBackpackDescription() {
-        return driver.findElement(sauceLabsBackpackDescription).getText();
+        return getText(sauceLabsBackpackDescription);
     }
 
     public String getSauceLabsBackpackPrice() {
-        return driver.findElement(sauceLabsBackpackPrice).getText();
+        return getText(sauceLabsBackpackPrice);
     }
 
     public void removeSauceLabsBackpack() {
-        driver.findElement(removeSauceLabsBackpackButton).click();
+        clickOnElement(removeSauceLabsBackpackButton);
     }
 
     public boolean isSauceLabsBackpackDisplayed() {
-        { try {return driver.findElement(sauceLabsBackpackTitle).isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-            }
-        }
+        return isDisplayed(sauceLabsBackpackTitle);
     }
 
     public void clickCheckoutButton() {
-        driver.findElement(checkoutButton).click();
+        clickOnElement(checkoutButton);
     }
 
     public boolean isRedirectedToTheCheckoutPage() {
-        if(driver.getCurrentUrl().equals("https://www.saucedemo.com/checkout-step-one.html")){
-        return true;
-        } else {
-            return false;
-        }
+        return isOnThePage("https://www.saucedemo.com/checkout-step-one.html");
     }
 
-    public void clickContinueShopping() {
-        driver.findElement(continueShopping).click();
+    public void clickContinueShopping () {
+        clickOnElement(continueShopping);
     }
 
     public boolean isRedirectedToTheProductsPage() {
-        if(driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html")){
-            return true;
-        } else {
-            return false;}
+        return isOnThePage("https://www.saucedemo.com/inventory.html");
     }
 
     public boolean isRedirectedToTheCartPage() {
-        if(driver.getCurrentUrl().equals("https://www.saucedemo.com/cart.html")){
-            return true;
-        } else {
-            return false;
-        }
-    }
+        return isOnThePage("https://www.saucedemo.com/cart.html");
 
+    }
 }
 
 

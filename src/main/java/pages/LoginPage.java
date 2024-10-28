@@ -1,13 +1,9 @@
 package pages;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.Color;
 
-public class LoginPage {
-
-    private final WebDriver driver;
+public class LoginPage extends BasePage {
 
     private final By usernameField = By.id("user-name");
     private final By passwordField = By.id("password");
@@ -17,47 +13,44 @@ public class LoginPage {
     private final By bottomBorderColorUsernameField = By.id("user-name");
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public void enterUsername (String username) {
-        driver.findElement(usernameField).sendKeys(username);
+    public void enterUsername (String value) {
+        sendKeysToElement(usernameField,value);
     }
 
-    public void enterPassword (String password) {
-        driver.findElement(passwordField).sendKeys(password);
+    public void enterPassword (String value) {
+        sendKeysToElement(passwordField, value);
     }
 
     public void clickLogin() {
-        driver.findElement(loginButton).click();
+        clickOnElement(loginButton);
     }
 
     public String getErrorMessage() {
-        return driver.findElement(errorMessage).getText();
+        return getText(errorMessage);
     }
 
     public boolean isToProductsPage() {
-        return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html");
+        return isOnThePage("https://www.saucedemo.com/inventory.html");
     }
 
     public String getUsernameFieldBottomBorderColor() {
-        Color bottomBorderColor = Color.fromString(driver.findElement(bottomBorderColorUsernameField).getCssValue("border-bottom-color"));
-        return bottomBorderColor.asHex();
+       return getColor(bottomBorderColorUsernameField,"border-bottom-color");
     }
 
     public String getPasswordFieldBottomBorderColor() {
-        Color bottomBorderColor = Color.fromString(driver.findElement(passwordField).getCssValue("border-bottom-color"));
-        return bottomBorderColor.asHex();
+        return getColor(passwordField, "border-bottom-color");
     }
 
+
     public String getErrorMessageBackgroundColor() {
-        Color backgroundColor = Color.fromString(driver.findElement(errorMessageBackgroundColor).getCssValue("background-color"));
-        return backgroundColor.asHex();
+        return getColor(errorMessageBackgroundColor,"background-color");
     }
 
     public String getLoginButtonBackgroundColor() {
-        Color bottomBorderColor = Color.fromString(driver.findElement(loginButton).getCssValue("background-color"));
-        return bottomBorderColor.asHex();
+       return  getColor(loginButton,"background-color");
     }
 
 }

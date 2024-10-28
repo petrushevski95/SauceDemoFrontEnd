@@ -2,65 +2,60 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.Color;
 
-public class CheckoutCompletePage {
+public class CheckoutCompletePage extends BasePage {
 
-    private final WebDriver driver;
     private final By thankYouMessage = By.className("complete-header");
     private final By orderCompleteText = By.className("complete-text");
     private final By backHomeButton = By.id("back-to-products");
     private final By signPicture = By.className("pony_express");
-    private final By checkoutCompleteLogo = By.className("app_logo");
 
     public CheckoutCompletePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public String getThankYouMessage() {
-        return driver.findElement(thankYouMessage).getText();
+        return getText(thankYouMessage);
     }
 
     public boolean isThankYouMessageDisplayed() {
-        return driver.findElement(thankYouMessage).isDisplayed();
+        return isDisplayed(thankYouMessage);
     }
 
     public String getOrderCompleteText() {
-        return driver.findElement(orderCompleteText).getText();
+        return getText(orderCompleteText);
     }
 
     public boolean isOrderCompleteTextDisplayed() {
-        return driver.findElement(orderCompleteText).isDisplayed();
+        return isDisplayed(orderCompleteText);
     }
 
     public String getBackHomeButtonBackgroundColor() {
-        Color backgroundHomeButtoncolor = Color.fromString(driver.findElement(backHomeButton).getCssValue("background-color"));
-        return backgroundHomeButtoncolor.asHex();
+        return getColor(backHomeButton, "background-color");
     }
 
     public String getBackHomeButtonTextColor() {
-        Color backgroundHomeButtoncolor = Color.fromString(driver.findElement(backHomeButton).getCssValue("color"));
-        return backgroundHomeButtoncolor.asHex();
+        return getColor(backHomeButton, "color");
     }
 
     public String getBackHomeButtonFontSize() {
-      return driver.findElement(backHomeButton).getCssValue("font-size");
+        return getCssValue(backHomeButton, "font-size");
     }
 
     public String getBackHomeButtonFontType() {
-        return driver.findElement(backHomeButton).getCssValue("font-family");
+        return getCssValue(backHomeButton, "font-family");
     }
 
     public void clickBackHomeButton() {
-        driver.findElement(backHomeButton).click();
+        clickOnElement(backHomeButton);
     }
 
     public boolean isRedirectedToProductsPage() {
-        return driver.getCurrentUrl().equals("https://www.saucedemo.com/inventory.html");
+        return isOnThePage("https://www.saucedemo.com/inventory.html");
     }
 
     public boolean isSignPictureDisplayed() {
-        return driver.findElement(signPicture).isDisplayed();
+        return isDisplayed(signPicture);
     }
 
 }
